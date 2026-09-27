@@ -1,0 +1,6 @@
+{
+  "name": "Ron´s Money",
+  "description": "Aplicación de Gestión de Dinero, Ingresos, Egresos, Bancos, Categorías y Balance General con seguridad biométrica y PIN.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

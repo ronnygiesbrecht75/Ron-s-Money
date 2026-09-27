@@ -1,0 +1,8 @@
+{
+  "appId": "com.ronsmoney.app",
+  "appName": "Ron's Money",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
