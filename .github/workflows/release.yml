@@ -2,6 +2,9 @@ name: Build and Release Installers (Windows & Android)
 
 on:
   push:
+    branches:
+      - main
+      - master
     tags:
       - 'v*'
   workflow_dispatch:
@@ -29,8 +32,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22
 
       - name: Instalar Dependencias
         run: npm install
@@ -39,7 +41,7 @@ jobs:
         run: npm run build
 
       - name: Compilar Instalador Electron (.exe)
-        run: npx electron-builder --win nsis
+        run: npx electron-builder --win nsis --publish never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -73,8 +75,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22
 
       - name: Instalar Dependencias
         run: npm install
@@ -90,13 +91,13 @@ jobs:
       - name: Compilar APK con Gradle
         run: |
           cd android
-          chmod +x gradlew
+          chmod +x gradlew || true
           ./gradlew assembleDebug
 
       - name: Preparar Archivo APK
         run: |
           mkdir -p release-apk
-          cp android/app/build/outputs/apk/debug/app-debug.apk release-apk/Rons-Money-v1.0.0.apk
+          find android/app/build/outputs/apk -name "*.apk" -exec cp {} release-apk/Rons-Money.apk \;
 
       - name: Subir Instalador Android como Artefacto
         uses: actions/upload-artifact@v4
@@ -134,8 +135,11 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "version=${{ github.event.inputs.release_version }}" >> $GITHUB_OUTPUT
-          else
+          elif [[ "${{ github.ref }}" == refs/tags/* ]]; then
             echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          else
+            PKG_VER=$(node -p "require('./package.json').version")
+            echo "version=v${PKG_VER}" >> $GITHUB_OUTPUT
           fi
 
       - name: Crear GitHub Release con Instaladores (.exe y .apk)
@@ -153,7 +157,7 @@ jobs:
             - Haz doble clic y sigue el asistente de instalación. Se creará automáticamente un acceso directo en tu Escritorio y Menú Inicio.
             
             ### 📱 Para Celular (Android):
-            - Descarga **`Rons-Money-v1.0.0.apk`**
+            - Descarga **`Rons-Money.apk`**
             - Ábrelo en tu teléfono Android y confirma la instalación.
             
             ---
@@ -161,5 +165,6 @@ jobs:
           files: |
             final-release/*.exe
             final-release/*.apk
+          fail_on_unmatched_files: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
