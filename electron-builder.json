@@ -4,6 +4,7 @@
   "productName": "Ron's Money",
   "npmRebuild": false,
   "nodeGypRebuild": false,
+  "buildDependenciesFromSource": false,
   "asar": true,
   "directories": {
     "output": "release"
