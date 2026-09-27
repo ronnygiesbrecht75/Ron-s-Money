@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ron\'s Money</string>
+    <string name="title_activity_main">Ron\'s Money</string>
+    <string name="package_name">com.ronsmoney.app</string>
+    <string name="custom_url_scheme">com.ronsmoney.app</string>
+</resources>

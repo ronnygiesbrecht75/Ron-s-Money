@@ -2,6 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
   "appId": "com.ronsmoney.app",
   "productName": "Ron's Money",
+  "npmRebuild": false,
+  "nodeGypRebuild": false,
+  "asar": true,
   "directories": {
     "output": "release"
   },
