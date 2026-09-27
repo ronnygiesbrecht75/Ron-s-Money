@@ -1,0 +1,186 @@
+name: Build and Release Installers (Windows & Android)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Versión del Release (ejemplo: v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+permissions:
+  contents: write
+
+jobs:
+  # -----------------------------------------------------------
+  # 1. BUILD WINDOWS .EXE INSTALLER
+  # -----------------------------------------------------------
+  build-windows:
+    name: Compilar Instalador Windows (.exe)
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Descargar Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar Dependencias
+        run: npm install
+
+      - name: Compilar App Web
+        run: npm run build
+
+      - name: Compilar Instalador Electron (.exe)
+        run: npx electron-builder --win --publish never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - name: Subir Instalador Windows como Artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-installer
+          path: release/*.exe
+          if-no-files-found: error
+
+  # -----------------------------------------------------------
+  # 2. BUILD ANDROID .APK INSTALLER
+  # -----------------------------------------------------------
+  build-android:
+    name: Compilar Instalador Android (.apk)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Configurar Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platforms;android-35 platforms;android-36 build-tools;35.0.0 platform-tools'
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar Dependencias
+        run: npm install
+
+      - name: Compilar App Web
+        run: npm run build
+
+      - name: Sincronizar Plataforma Android
+        run: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+          if [ -f "android/variables.gradle" ]; then
+            sed -i 's/compileSdkVersion = 36/compileSdkVersion = 35/g' android/variables.gradle || true
+            sed -i 's/targetSdkVersion = 36/targetSdkVersion = 35/g' android/variables.gradle || true
+          fi
+          npx cap sync android
+
+      - name: Aceptar Licencias de Android
+        run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
+      - name: Compilar APK con Gradle
+        run: |
+          cd android
+          chmod +x gradlew || true
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Preparar Archivo APK
+        run: |
+          mkdir -p release-apk
+          find android/app/build/outputs/apk/debug -name "*.apk" -exec cp {} release-apk/Rons-Money.apk \;
+
+      - name: Subir Instalador Android como Artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-installer
+          path: release-apk/*.apk
+          if-no-files-found: error
+
+  # -----------------------------------------------------------
+  # 3. PUBLICAR RELEASE EN GITHUB CON AMBOS INSTALADORES
+  # -----------------------------------------------------------
+  publish-release:
+    name: Publicar Release Oficial en GitHub
+    needs: [build-windows, build-android]
+    if: always() && (needs.build-windows.result == 'success' || needs.build-android.result == 'success')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar Código
+        uses: actions/checkout@v4
+
+      - name: Descargar Instalador Windows
+        uses: actions/download-artifact@v4
+        if: needs.build-windows.result == 'success'
+        with:
+          name: windows-installer
+          path: final-release
+
+      - name: Descargar Instalador Android
+        uses: actions/download-artifact@v4
+        if: needs.build-android.result == 'success'
+        with:
+          name: android-installer
+          path: final-release
+
+      - name: Determinar Nombre de Versión
+        id: get_version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.release_version }}" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          else
+            PKG_VER=$(node -p "require('./package.json').version")
+            echo "version=v${PKG_VER}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Crear o Actualizar GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          name: "Ron's Money ${{ steps.get_version.outputs.version }}"
+          body: |
+            ## 🎉 ¡Instaladores Listos de Ron's Money!
+
+            Descarga la aplicación para tu dispositivo:
+
+            ### 💻 Para Computadora (Windows):
+            - Descarga **`Rons-Money-Setup-*.exe`**
+            - Haz doble clic y sigue el asistente de instalación. Se creará automáticamente un acceso directo en tu Escritorio y Menú Inicio.
+
+            ### 📱 Para Celular (Android):
+            - Descarga **`Rons-Money.apk`**
+            - Ábrelo en tu teléfono Android y confirma la instalación.
+
+            ---
+            *Compilado automáticamente mediante GitHub Actions.*
+          files: |
+            final-release/*.exe
+            final-release/*.apk
+          fail_on_unmatched_files: false
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
