@@ -77,6 +77,7 @@ export const DEFAULT_USER_SETTINGS: UserSettings = {
   defaultCurrency: 'PYG',
   exchangeRateUsdToPyg: 7550,
   requireAuthOnLoad: false, // Starts unlocked or toggleable in settings
+  githubRepo: 'ronnygies22/rons-money',
 };
 
 export const INITIAL_TRANSACTIONS: Transaction[] = [
@@ -145,7 +146,7 @@ export const INITIAL_TRANSACTIONS: Transaction[] = [
     cod: 'TRX-1006',
     bankId: 'bank-1',
     type: 'EXPENSE',
-    categoryId: 'cat-g-supermercado' in {} ? 'cat-g-casa' : 'cat-g-casa',
+    categoryId: 'cat-g-casa',
     note: 'Mantenimiento y compras para el hogar',
     amount: 820000,
     date: '2026-08-12',

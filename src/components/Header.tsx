@@ -1,6 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
-import { Menu, Sun, Moon, Monitor, Plus, Lock, Shield } from 'lucide-react';
+import { Menu, Sun, Moon, Monitor, Plus, Lock, DownloadCloud } from 'lucide-react';
 import { TabId, ThemeMode } from '../types';
 
 interface HeaderProps {
@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
     categories: { title: 'Categorías', subtitle: 'Administración y clasificación de conceptos' },
     general_balance: { title: 'Balance General', subtitle: 'Gráficos, balances y reportes por día, semana, mes y año' },
     banks: { title: 'Bancos y Cuentas', subtitle: 'Gestión de entidades financieras en Guaraníes y Dólares' },
-    settings: { title: 'Ajustes', subtitle: 'Seguridad, tema de colores, PIN, huella dactilar y respaldos' },
+    settings: { title: 'Ajustes', subtitle: 'Seguridad, tema de colores, PIN, huella dactilar, actualizaciones y respaldos' },
   };
 
   const currentMeta = tabTitles[activeTab] || { title: 'Ron´s Money', subtitle: 'Gestión Financiera' };
@@ -39,6 +39,16 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
     setActiveTab('add_transaction');
   };
 
+  const handleOpenUpdates = () => {
+    setActiveTab('settings');
+    setTimeout(() => {
+      const elem = document.getElementById('section-app-updates');
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <header
       id="app-top-header"
@@ -50,11 +60,10 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           id="btn-mobile-sidebar-toggle"
           onClick={onToggleMobileSidebar}
           type="button"
-          className="p-2 lg:hidden text-black dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors font-bold"
+          className="p-2 lg:hidden text-black dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors font-bold cursor-pointer"
         >
           <Menu className="w-6 h-6" />
         </button>
-
         <div>
           <h1 id="page-header-title" className="text-lg sm:text-xl font-black tracking-tight text-black dark:text-white">
             {currentMeta.title}
@@ -72,12 +81,23 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           <button
             id="btn-header-quick-add"
             onClick={handleNewTransaction}
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white text-xs font-black rounded-xl shadow-sm transition-all"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white text-xs font-black rounded-xl shadow-sm transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Nueva Transacción</span>
           </button>
         )}
+
+        {/* Quick Update Button */}
+        <button
+          id="btn-header-updates"
+          onClick={handleOpenUpdates}
+          title="Buscar Actualizaciones de la App"
+          className="p-2.5 text-black dark:text-slate-200 hover:bg-orange-50 dark:hover:bg-slate-800 hover:text-orange-600 dark:hover:text-orange-400 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors flex items-center gap-1.5 text-xs font-black cursor-pointer"
+        >
+          <DownloadCloud className="w-4 h-4 text-orange-500" />
+          <span className="hidden xl:inline text-xs font-black text-slate-800 dark:text-slate-200">Actualizar</span>
+        </button>
 
         {/* Theme mode toggle button cycling across 3 modes */}
         <button
@@ -86,7 +106,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           title={`Tema actual: ${
             settings.themeMode === 'light' ? 'Modo claro' : settings.themeMode === 'dark' ? 'Modo noche' : 'Modo del dispositivo'
           }. Clic para cambiar.`}
-          className="p-2.5 text-black dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors flex items-center gap-1.5 text-xs font-black"
+          className="p-2.5 text-black dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors flex items-center gap-1.5 text-xs font-black cursor-pointer"
         >
           {settings.themeMode === 'light' && (
             <>
@@ -113,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           id="btn-header-lock-app"
           onClick={logout}
           title="Bloquear y salir"
-          className="p-2.5 text-black dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-slate-800 hover:text-orange-600 dark:hover:text-orange-400 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors"
+          className="p-2.5 text-black dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-slate-800 hover:text-orange-600 dark:hover:text-orange-400 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors cursor-pointer"
         >
           <Lock className="w-4 h-4" />
         </button>

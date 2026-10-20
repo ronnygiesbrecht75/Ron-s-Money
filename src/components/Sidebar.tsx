@@ -12,9 +12,11 @@ import {
   Lock, 
   ChevronRight,
   Sparkles,
-  ShieldCheck
+  ShieldCheck,
+  DownloadCloud
 } from 'lucide-react';
 import { formatCurrency } from '../utils/formatters';
+import { CURRENT_APP_VERSION } from '../services/updateService';
 
 interface SidebarProps {
   mobileOpen: boolean;
@@ -23,7 +25,6 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) => {
   const { activeTab, setActiveTab, logout, getTotalBalanceByCurrency, settings, license } = useApp();
-
   const pygTotal = getTotalBalanceByCurrency('PYG');
   const usdTotal = getTotalBalanceByCurrency('USD');
 
@@ -68,6 +69,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
   const handleTabClick = (tabId: TabId) => {
     setActiveTab(tabId);
     setMobileOpen(false);
+  };
+
+  const handleGoToUpdates = () => {
+    setActiveTab('settings');
+    setMobileOpen(false);
+    setTimeout(() => {
+      const el = document.getElementById('section-app-updates');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   return (
@@ -137,7 +147,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
                 id={`sidebar-tab-${item.id}`}
                 onClick={() => handleTabClick(item.id)}
                 type="button"
-                className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm transition-all group ${
+                className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm transition-all group cursor-pointer ${
                   isActive
                     ? 'bg-orange-500 text-white shadow-md shadow-orange-500/30 font-black'
                     : 'text-emerald-50 font-bold hover:bg-[#024936] hover:text-white'
@@ -158,7 +168,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
         </nav>
 
         {/* User & Lock Footer */}
-        <div className="p-4 border-t border-[#024936] dark:border-[#02382b] bg-[#012d22] dark:bg-[#012019]">
+        <div className="p-4 border-t border-[#024936] dark:border-[#02382b] bg-[#012d22] dark:bg-[#012019] space-y-2.5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5 min-w-0">
               <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-black text-xs shadow-xs">
@@ -180,15 +190,29 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
                 </div>
               </div>
             </div>
+
             <button
               id="btn-sidebar-lock"
               onClick={logout}
               title="Bloquear sesión"
-              className="p-2 text-emerald-200 hover:text-white hover:bg-orange-500 rounded-xl transition-all"
+              className="p-2 text-emerald-200 hover:text-white hover:bg-orange-500 rounded-xl transition-all cursor-pointer"
             >
               <Lock className="w-4 h-4" />
             </button>
           </div>
+
+          {/* Version & Update Quick Button */}
+          <button
+            type="button"
+            onClick={handleGoToUpdates}
+            className="w-full py-1.5 px-3 rounded-xl bg-white/5 hover:bg-white/10 text-[11px] font-bold text-emerald-100 flex items-center justify-between transition-colors border border-emerald-400/10 cursor-pointer"
+          >
+            <span className="text-slate-300">v{CURRENT_APP_VERSION}</span>
+            <span className="text-orange-400 flex items-center gap-1 font-black text-[10px]">
+              <DownloadCloud className="w-3.5 h-3.5" />
+              Actualizaciones
+            </span>
+          </button>
         </div>
       </aside>
     </>

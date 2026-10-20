@@ -22,6 +22,7 @@ import {
 import { ConfirmationModal } from '../ConfirmationModal';
 import { GoogleDriveBackupSection } from '../GoogleDriveBackupSection';
 import { LicenseManagerSection } from '../LicenseManagerSection';
+import { AppUpdateSection } from '../AppUpdateSection';
 
 export const SettingsTab: React.FC = () => {
   const { 
@@ -40,7 +41,6 @@ export const SettingsTab: React.FC = () => {
   const [biometricEnabled, setBiometricEnabled] = useState(settings.biometricEnabled);
   const [requireAuthOnLoad, setRequireAuthOnLoad] = useState(settings.requireAuthOnLoad);
   const [exchangeRate, setExchangeRate] = useState(settings.exchangeRateUsdToPyg.toString());
-
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -110,7 +110,7 @@ export const SettingsTab: React.FC = () => {
           Ajustes de Ron´s Money
         </h2>
         <p className="text-xs text-slate-700 dark:text-slate-300 font-medium">
-          Tema visual (Verde & Blanco), credenciales de seguridad, huella dactilar y copias de seguridad.
+          Tema visual (Verde & Blanco), credenciales de seguridad, huella dactilar, actualizaciones y respaldos.
         </p>
       </div>
 
@@ -310,7 +310,6 @@ export const SettingsTab: React.FC = () => {
                 </div>
               </div>
             </div>
-
             <label className="relative inline-flex items-center cursor-pointer">
               <input
                 id="toggle-biometrics"
@@ -338,7 +337,6 @@ export const SettingsTab: React.FC = () => {
                 </div>
               </div>
             </div>
-
             <label className="relative inline-flex items-center cursor-pointer">
               <input
                 id="toggle-require-auth"
@@ -362,7 +360,6 @@ export const SettingsTab: React.FC = () => {
               <Lock className="w-4 h-4" />
               <span>Bloquear Sesión Ahora</span>
             </button>
-
             <button
               id="btn-save-settings"
               type="submit"
@@ -375,13 +372,16 @@ export const SettingsTab: React.FC = () => {
         </form>
       </div>
 
-      {/* 3. SECCIÓN: LICENCIA DE SOFTWARE & ACTIVACIÓN */}
+      {/* 3. SECCIÓN: ACTUALIZACIONES DEL SISTEMA & IN-APP (NUEVA) */}
+      <AppUpdateSection />
+
+      {/* 4. SECCIÓN: LICENCIA DE SOFTWARE & ACTIVACIÓN */}
       <LicenseManagerSection />
 
-      {/* 4. SECCIÓN: COPIAS DE SEGURIDAD EN GOOGLE DRIVE */}
+      {/* 5. SECCIÓN: COPIAS DE SEGURIDAD EN GOOGLE DRIVE */}
       <GoogleDriveBackupSection />
 
-      {/* 5. SECCIÓN: COPIA LOCAL & RESTABLECER */}
+      {/* 6. SECCIÓN: COPIA LOCAL & RESTABLECER */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
         <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
           <Download className="w-5 h-5 text-orange-500" />

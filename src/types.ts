@@ -1,7 +1,5 @@
 export type TransactionType = 'INCOME' | 'EXPENSE';
-
 export type CurrencyType = 'PYG' | 'USD';
-
 export type TimeframePeriod = 'day' | 'week' | 'month' | 'year';
 
 export type TabId = 
@@ -57,6 +55,32 @@ export interface UserSettings {
   defaultCurrency: CurrencyType;
   exchangeRateUsdToPyg: number; // e.g., 7500 PYG per 1 USD
   requireAuthOnLoad: boolean;
+  githubRepo?: string; // e.g. "ronnygies22/rons-money"
+}
+
+export interface UpdateAssetItem {
+  id: string | number;
+  name: string;
+  downloadUrl: string;
+  size: number;
+  platform?: 'android' | 'windows' | 'web';
+  type: 'apk' | 'exe' | 'zip' | 'other';
+  description?: string;
+  isRecommended?: boolean;
+}
+
+export interface AppUpdateInfo {
+  version: string;
+  name: string;
+  notes: string;
+  publishedAt: string;
+  htmlUrl: string;
+  downloadUrl?: string;
+  fileName?: string;
+  fileSize?: number;
+  platform: 'android' | 'windows' | 'web';
+  isSimulated?: boolean;
+  availableAssets?: UpdateAssetItem[];
 }
 
 export interface BalanceFilterState {
@@ -82,4 +106,3 @@ export interface SoftwareLicense {
   expiresAt: string | null;
   deviceId: string;
 }
-
