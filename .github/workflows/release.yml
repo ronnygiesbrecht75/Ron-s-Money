@@ -19,14 +19,49 @@ permissions:
 
 jobs:
   # -----------------------------------------------------------
-  # 1. BUILD WINDOWS .EXE INSTALLER
+  # 1. COMPILAR APLICACIÓN WEB (Vite -> dist)
+  # -----------------------------------------------------------
+  build-web:
+    name: Compilar App Web
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar Dependencias
+        run: npm install --legacy-peer-deps
+
+      - name: Compilar App Web (dist)
+        run: npm run build
+
+      - name: Guardar Artefacto Web
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-dist
+          path: dist
+          if-no-files-found: error
+
+  # -----------------------------------------------------------
+  # 2. COMPILAR INSTALADOR WINDOWS (.exe)
   # -----------------------------------------------------------
   build-windows:
     name: Compilar Instalador Windows (.exe)
+    needs: build-web
     runs-on: windows-latest
     steps:
       - name: Descargar Código
         uses: actions/checkout@v4
+
+      - name: Descargar Dist Web Compilado
+        uses: actions/download-artifact@v4
+        with:
+          name: web-dist
+          path: dist
 
       - name: Habilitar Rutas Largas en Windows
         run: git config --system core.longpaths true
@@ -37,12 +72,7 @@ jobs:
           node-version: 22
 
       - name: Instalar Dependencias
-        run: |
-          npm install --legacy-peer-deps --include=optional
-          npm install -D @rollup/rollup-win32-x64-msvc lightningcss-win32-x64-msvc --legacy-peer-deps
-
-      - name: Compilar App Web
-        run: npm run build
+        run: npm install --legacy-peer-deps
 
       - name: Compilar Instalador Electron (.exe)
         run: npx electron-builder --win --publish never
@@ -57,14 +87,21 @@ jobs:
           if-no-files-found: error
 
   # -----------------------------------------------------------
-  # 2. BUILD ANDROID .APK INSTALLER
+  # 3. COMPILAR INSTALADOR ANDROID (.apk)
   # -----------------------------------------------------------
   build-android:
     name: Compilar Instalador Android (.apk)
+    needs: build-web
     runs-on: ubuntu-latest
     steps:
       - name: Descargar Código
         uses: actions/checkout@v4
+
+      - name: Descargar Dist Web Compilado
+        uses: actions/download-artifact@v4
+        with:
+          name: web-dist
+          path: dist
 
       - name: Configurar Java 21 LTS
         uses: actions/setup-java@v4
@@ -79,9 +116,6 @@ jobs:
 
       - name: Instalar Dependencias
         run: npm install --legacy-peer-deps
-
-      - name: Compilar App Web
-        run: npm run build
 
       - name: Sincronizar Plataforma Android
         run: |
@@ -113,7 +147,7 @@ jobs:
           if-no-files-found: error
 
   # -----------------------------------------------------------
-  # 3. PUBLICAR RELEASE EN GITHUB CON AMBOS INSTALADORES
+  # 4. PUBLICAR RELEASE EN GITHUB CON AMBOS INSTALADORES
   # -----------------------------------------------------------
   publish-release:
     name: Publicar Release Oficial en GitHub
