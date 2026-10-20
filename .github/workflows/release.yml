@@ -28,19 +28,22 @@ jobs:
       - name: Descargar Código
         uses: actions/checkout@v4
 
+      - name: Habilitar Rutas Largas en Windows
+        run: git config --system core.longpaths true
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: Instalar Dependencias
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Compilar App Web
         run: npm run build
 
       - name: Compilar Instalador Electron (.exe)
-        run: npx electron-builder --win --publish never -c.npmRebuild=false -c.buildDependenciesFromSource=false
+        run: npx electron-builder --win --publish never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -70,7 +73,7 @@ jobs:
       - name: Configurar Android SDK
         uses: android-actions/setup-android@v3
         with:
-          packages: 'platforms;android-35 build-tools;35.0.0 platform-tools'
+          packages: 'platforms;android-35 platforms;android-36 build-tools;35.0.0 platform-tools'
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -78,7 +81,7 @@ jobs:
           node-version: 22
 
       - name: Instalar Dependencias
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Compilar App Web
         run: npm run build
@@ -86,25 +89,23 @@ jobs:
       - name: Sincronizar Plataforma Android
         run: |
           if [ ! -d "android" ]; then npx cap add android; fi
+          npx cap sync android
           if [ -f "android/variables.gradle" ]; then
             sed -i 's/compileSdkVersion = 36/compileSdkVersion = 35/g' android/variables.gradle || true
             sed -i 's/targetSdkVersion = 36/targetSdkVersion = 35/g' android/variables.gradle || true
           fi
-          npx cap sync android
-
-      - name: Aceptar Licencias de Android
-        run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Compilar APK con Gradle
         run: |
           cd android
-          chmod +x gradlew || true
-          ./gradlew assembleDebug --no-daemon
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Preparar Archivo APK
         run: |
           mkdir -p release-apk
-          cp android/app/build/outputs/apk/debug/*.apk release-apk/Rons-Money.apk
+          find android/app/build/outputs/apk -name "*.apk" -exec cp {} release-apk/Rons-Money.apk \;
+          ls -la release-apk/
 
       - name: Subir Instalador Android como Artefacto
         uses: actions/upload-artifact@v4
