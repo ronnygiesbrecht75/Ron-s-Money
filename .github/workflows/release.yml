@@ -37,7 +37,9 @@ jobs:
           node-version: 22
 
       - name: Instalar Dependencias
-        run: npm install --legacy-peer-deps
+        run: |
+          npm install --legacy-peer-deps --include=optional
+          npm install -D @rollup/rollup-win32-x64-msvc lightningcss-win32-x64-msvc --legacy-peer-deps
 
       - name: Compilar App Web
         run: npm run build
@@ -70,11 +72,6 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Configurar Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: 'platforms;android-35 platforms;android-36 build-tools;35.0.0 platform-tools'
-
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
@@ -90,10 +87,11 @@ jobs:
         run: |
           if [ ! -d "android" ]; then npx cap add android; fi
           npx cap sync android
-          if [ -f "android/variables.gradle" ]; then
-            sed -i 's/compileSdkVersion = 36/compileSdkVersion = 35/g' android/variables.gradle || true
-            sed -i 's/targetSdkVersion = 36/targetSdkVersion = 35/g' android/variables.gradle || true
-          fi
+
+      - name: Instalar Android SDK 36
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "platforms;android-36" "build-tools;36.0.0" "platform-tools" || true
 
       - name: Compilar APK con Gradle
         run: |
