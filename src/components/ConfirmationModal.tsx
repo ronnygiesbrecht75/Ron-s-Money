@@ -37,12 +37,12 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ duration: 0.15 }}
-          className="relative w-full max-w-md bg-white dark:bg-[#12231e] border-2 border-emerald-200 dark:border-emerald-800 rounded-3xl shadow-2xl p-6 text-black dark:text-white overflow-hidden"
+          className="relative w-full max-w-md bg-white dark:bg-zinc-900 border-2 border-slate-200 dark:border-zinc-800 rounded-3xl shadow-2xl p-6 text-slate-800 dark:text-zinc-100 overflow-hidden"
         >
           <button
             id="btn-close-confirm-modal"
             onClick={onCancel}
-            className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-black dark:hover:text-white hover:bg-emerald-50 dark:hover:bg-[#18352b] rounded-lg transition-colors"
+            className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-lg transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -57,21 +57,21 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
             </div>
 
             <div className="flex-1 pr-4">
-              <h3 id="confirm-modal-title" className="text-lg font-black text-black dark:text-white">
+              <h3 id="confirm-modal-title" className="text-lg font-black text-slate-800 dark:text-zinc-100">
                 {title}
               </h3>
-              <p id="confirm-modal-description" className="mt-2 text-sm text-black dark:text-slate-200 font-medium leading-relaxed">
+              <p id="confirm-modal-description" className="mt-2 text-sm text-slate-600 dark:text-zinc-300 font-medium leading-relaxed">
                 {message}
               </p>
             </div>
           </div>
 
-          <div className="mt-6 flex items-center justify-end gap-3 pt-4 border-t border-emerald-100 dark:border-emerald-900/60">
+          <div className="mt-6 flex items-center justify-end gap-3 pt-4 border-t border-slate-100 dark:border-zinc-800">
             <button
               id="btn-cancel-action"
               onClick={onCancel}
               type="button"
-              className="px-4 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-[#18352b] rounded-xl transition-colors"
+              className="px-4 py-2.5 text-xs font-bold text-slate-600 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-xl transition-colors cursor-pointer"
             >
               {cancelText}
             </button>
@@ -79,7 +79,7 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
               id="btn-confirm-action"
               onClick={onConfirm}
               type="button"
-              className={`px-5 py-2.5 text-xs font-black text-white rounded-xl shadow-md transition-all ${
+              className={`px-5 py-2.5 text-xs font-black text-white rounded-xl shadow-md transition-all cursor-pointer ${
                 isDestructive
                   ? 'bg-rose-600 hover:bg-rose-700 active:bg-rose-800 shadow-rose-600/30'
                   : 'bg-orange-500 hover:bg-orange-600 active:bg-orange-700 shadow-orange-500/30'

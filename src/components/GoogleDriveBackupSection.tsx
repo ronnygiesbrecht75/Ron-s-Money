@@ -264,18 +264,18 @@ export const GoogleDriveBackupSection: React.FC = () => {
   };
 
   return (
-    <div id="google-drive-backup-section" className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs space-y-6">
+    <div id="google-drive-backup-section" className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800 gap-2">
         <div className="flex items-center gap-2.5">
           <div className="p-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/60 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-800/60">
             <Cloud className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2">
               Copias de Seguridad en Google Drive
             </h3>
-            <p className="text-xs text-slate-700 dark:text-slate-300 font-medium">
+            <p className="text-xs text-slate-700 dark:text-zinc-300 font-medium">
               Guarda tus datos en la nube y selecciona en qué cuenta de Google deseas respaldar.
             </p>
           </div>
@@ -308,7 +308,7 @@ export const GoogleDriveBackupSection: React.FC = () => {
       )}
 
       {/* SECTION 1: GOOGLE ACCOUNT SELECTION / STATUS */}
-      <div className="rounded-2xl p-5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+      <div className="rounded-2xl p-5 bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           {googleUser ? (
             <div className="flex items-center gap-3.5">
@@ -330,27 +330,27 @@ export const GoogleDriveBackupSection: React.FC = () => {
                   </span>
                   <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                 </div>
-                <div className="text-sm font-black text-black dark:text-white">
+                <div className="text-sm font-black text-slate-800 dark:text-zinc-100">
                   {googleUser.displayName || 'Usuario de Google'}
                 </div>
-                <div className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
+                <div className="text-xs font-mono font-bold text-slate-700 dark:text-zinc-300">
                   {googleUser.email}
                 </div>
-                <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
+                <div className="text-[11px] text-slate-600 dark:text-zinc-400 mt-0.5">
                   Todas las copias en la nube se guardarán directamente en el Google Drive de esta cuenta.
                 </div>
               </div>
             </div>
           ) : (
             <div className="flex items-center gap-3.5">
-              <div className="p-3 rounded-2xl bg-white dark:bg-slate-700 text-slate-500 dark:text-slate-300 border border-slate-200 dark:border-slate-600 shrink-0">
+              <div className="p-3 rounded-2xl bg-white dark:bg-zinc-700 text-slate-500 dark:text-zinc-300 border border-slate-200 dark:border-zinc-600 shrink-0">
                 <HardDrive className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-sm font-black text-black dark:text-white">
+                <div className="text-sm font-black text-slate-800 dark:text-zinc-100">
                   Conectar cuenta de Google
                 </div>
-                <div className="text-xs text-slate-700 dark:text-slate-300 font-medium">
+                <div className="text-xs text-slate-700 dark:text-zinc-300 font-medium">
                   Inicia sesión para seleccionar en qué cuenta de Google Drive deseas guardar y recuperar tus copias de seguridad.
                 </div>
               </div>
@@ -366,7 +366,7 @@ export const GoogleDriveBackupSection: React.FC = () => {
                   id="btn-switch-google-account"
                   onClick={handleSignIn}
                   disabled={isSigningIn}
-                  className="px-3.5 py-2 rounded-xl text-xs font-black border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-black dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors flex items-center gap-1.5 shadow-2xs"
+                  className="px-3.5 py-2 rounded-xl text-xs font-black border border-slate-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-slate-800 dark:text-zinc-100 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors flex items-center gap-1.5 shadow-2xs"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 text-orange-500 ${isSigningIn ? 'animate-spin' : ''}`} />
                   <span>Cambiar de Cuenta</span>
@@ -388,7 +388,7 @@ export const GoogleDriveBackupSection: React.FC = () => {
                 id="btn-google-drive-signin"
                 onClick={handleSignIn}
                 disabled={isSigningIn}
-                className="inline-flex items-center gap-3 px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-xl shadow-xs hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-black text-slate-800 dark:text-white transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-3 px-4 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-600 rounded-xl shadow-xs hover:bg-slate-50 dark:hover:bg-zinc-700 text-xs font-black text-slate-800 dark:text-white transition-all active:scale-[0.98]"
               >
                 <div className="w-5 h-5 shrink-0">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="w-5 h-5 block">
@@ -461,7 +461,7 @@ export const GoogleDriveBackupSection: React.FC = () => {
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <Layers className="w-4 h-4 text-orange-500" />
-                <h4 className="text-xs uppercase tracking-wider font-black text-black dark:text-white">
+                <h4 className="text-xs uppercase tracking-wider font-black text-slate-800 dark:text-zinc-100">
                   Copias de Seguridad Guardadas en Google Drive ({backupFiles.length})
                 </h4>
               </div>
@@ -479,19 +479,19 @@ export const GoogleDriveBackupSection: React.FC = () => {
             </div>
 
             {isLoadingBackups ? (
-              <div className="p-8 text-center border border-slate-200 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-800/40">
+              <div className="p-8 text-center border border-slate-200 dark:border-zinc-800 rounded-2xl bg-white dark:bg-zinc-800/40">
                 <RefreshCw className="w-6 h-6 animate-spin text-orange-500 mx-auto mb-2" />
-                <p className="text-xs font-bold text-slate-600 dark:text-slate-400">
+                <p className="text-xs font-bold text-slate-600 dark:text-zinc-400">
                   Consultando archivos en Google Drive...
                 </p>
               </div>
             ) : backupFiles.length === 0 ? (
-              <div className="p-8 text-center border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-800/30">
-                <Cloud className="w-10 h-10 text-slate-300 dark:text-slate-600 mx-auto mb-2" />
-                <p className="text-xs font-black text-slate-700 dark:text-slate-300">
+              <div className="p-8 text-center border-2 border-dashed border-slate-200 dark:border-zinc-800 rounded-2xl bg-white dark:bg-zinc-800/30">
+                <Cloud className="w-10 h-10 text-slate-300 dark:text-zinc-600 mx-auto mb-2" />
+                <p className="text-xs font-black text-slate-700 dark:text-zinc-300">
                   Aún no tienes copias de seguridad de Ron´s Money en esta cuenta de Google Drive.
                 </p>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                <p className="text-[11px] text-slate-500 dark:text-zinc-400 mt-1">
                   Haz clic en &quot;Guardar Copia en Drive&quot; para crear tu primera copia de seguridad en la nube.
                 </p>
               </div>
@@ -500,17 +500,17 @@ export const GoogleDriveBackupSection: React.FC = () => {
                 {backupFiles.map((file) => (
                   <div
                     key={file.id}
-                    className="p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-3 transition-colors shadow-2xs"
+                    className="p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-800/50 hover:border-slate-300 dark:hover:border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-3 transition-colors shadow-2xs"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="p-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/50 text-orange-600 dark:text-orange-400 shrink-0">
                         <FileJson className="w-5 h-5" />
                       </div>
                       <div className="min-w-0">
-                        <div className="text-xs font-black text-black dark:text-white truncate">
+                        <div className="text-xs font-black text-slate-800 dark:text-zinc-100 truncate">
                           {file.name}
                         </div>
-                        <div className="flex items-center gap-3 text-[11px] text-slate-600 dark:text-slate-400 font-medium mt-0.5">
+                        <div className="flex items-center gap-3 text-[11px] text-slate-600 dark:text-zinc-400 font-medium mt-0.5">
                           <span className="flex items-center gap-1">
                             <Calendar className="w-3 h-3" />
                             {formatDate(file.createdTime)}
@@ -538,7 +538,7 @@ export const GoogleDriveBackupSection: React.FC = () => {
                         type="button"
                         onClick={() => handleDownloadFileLocally(file)}
                         title="Descargar archivo JSON a tu computadora"
-                        className="p-1.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors"
+                        className="p-1.5 rounded-xl text-slate-600 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-700 border border-slate-200 dark:border-zinc-700 transition-colors"
                       >
                         <Download className="w-4 h-4" />
                       </button>

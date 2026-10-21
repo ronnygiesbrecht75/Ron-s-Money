@@ -52,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
   return (
     <header
       id="app-top-header"
-      className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xs"
+      className="sticky top-0 z-30 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-slate-200 dark:border-zinc-800 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xs"
     >
       <div className="flex items-center gap-3">
         {/* Mobile menu toggle */}
@@ -60,15 +60,15 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           id="btn-mobile-sidebar-toggle"
           onClick={onToggleMobileSidebar}
           type="button"
-          className="p-2 lg:hidden text-black dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors font-bold cursor-pointer"
+          className="p-2 lg:hidden text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-900 rounded-xl transition-colors font-bold cursor-pointer"
         >
           <Menu className="w-6 h-6" />
         </button>
         <div>
-          <h1 id="page-header-title" className="text-lg sm:text-xl font-black tracking-tight text-black dark:text-white">
+          <h1 id="page-header-title" className="text-lg sm:text-xl font-black tracking-tight text-slate-800 dark:text-zinc-100">
             {currentMeta.title}
           </h1>
-          <p className="text-xs text-black dark:text-slate-400 font-medium hidden sm:block">
+          <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium hidden sm:block">
             {currentMeta.subtitle}
           </p>
         </div>
@@ -93,10 +93,10 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           id="btn-header-updates"
           onClick={handleOpenUpdates}
           title="Buscar Actualizaciones de la App"
-          className="p-2.5 text-black dark:text-slate-200 hover:bg-orange-50 dark:hover:bg-slate-800 hover:text-orange-600 dark:hover:text-orange-400 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors flex items-center gap-1.5 text-xs font-black cursor-pointer"
+          className="p-2.5 text-slate-700 dark:text-zinc-200 hover:bg-orange-50 dark:hover:bg-zinc-900 hover:text-orange-600 dark:hover:text-orange-400 rounded-xl border border-slate-200 dark:border-zinc-800 transition-colors flex items-center gap-1.5 text-xs font-black cursor-pointer"
         >
           <DownloadCloud className="w-4 h-4 text-orange-500" />
-          <span className="hidden xl:inline text-xs font-black text-slate-800 dark:text-slate-200">Actualizar</span>
+          <span className="hidden xl:inline text-xs font-black text-slate-800 dark:text-zinc-200">Actualizar</span>
         </button>
 
         {/* Theme mode toggle button cycling across 3 modes */}
@@ -106,7 +106,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           title={`Tema actual: ${
             settings.themeMode === 'light' ? 'Modo claro' : settings.themeMode === 'dark' ? 'Modo noche' : 'Modo del dispositivo'
           }. Clic para cambiar.`}
-          className="p-2.5 text-black dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors flex items-center gap-1.5 text-xs font-black cursor-pointer"
+          className="p-2.5 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-900 rounded-xl border border-slate-200 dark:border-zinc-800 transition-colors flex items-center gap-1.5 text-xs font-black cursor-pointer"
         >
           {settings.themeMode === 'light' && (
             <>
@@ -122,7 +122,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           )}
           {settings.themeMode === 'system' && (
             <>
-              <Monitor className="w-4 h-4 text-slate-700 dark:text-slate-200" />
+              <Monitor className="w-4 h-4 text-slate-700 dark:text-zinc-200" />
               <span className="hidden md:inline">Dispositivo</span>
             </>
           )}
@@ -133,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileSidebar }) => {
           id="btn-header-lock-app"
           onClick={logout}
           title="Bloquear y salir"
-          className="p-2.5 text-black dark:text-slate-300 hover:bg-orange-50 dark:hover:bg-slate-800 hover:text-orange-600 dark:hover:text-orange-400 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors cursor-pointer"
+          className="p-2.5 text-slate-700 dark:text-zinc-300 hover:bg-orange-50 dark:hover:bg-zinc-900 hover:text-orange-600 dark:hover:text-orange-400 rounded-xl border border-slate-200 dark:border-zinc-800 transition-colors cursor-pointer"
         >
           <Lock className="w-4 h-4" />
         </button>

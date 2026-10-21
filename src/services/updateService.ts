@@ -16,7 +16,7 @@ export {
   isElectronApp,
 };
 
-export const CURRENT_APP_VERSION = '1.0.0';
+export const CURRENT_APP_VERSION = '1.0.1';
 
 export function getAppPlatform(): 'android' | 'windows' | 'web' {
   try {

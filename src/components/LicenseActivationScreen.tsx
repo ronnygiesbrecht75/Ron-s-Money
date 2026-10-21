@@ -63,8 +63,8 @@ export const LicenseActivationScreen: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center items-center p-4 sm:p-6 transition-colors">
-      <div className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl overflow-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 flex flex-col justify-center items-center p-4 sm:p-6 transition-colors">
+      <div className="w-full max-w-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl shadow-xl overflow-hidden">
         {/* Banner Top */}
         <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 p-6 text-white text-center relative overflow-hidden">
           <div className="absolute -right-6 -bottom-6 opacity-10">
@@ -89,19 +89,19 @@ export const LicenseActivationScreen: React.FC = () => {
             </div>
           ) : (
             <div className="text-center">
-              <h2 className="text-base font-black text-black dark:text-white">
+              <h2 className="text-base font-black text-slate-800 dark:text-zinc-100">
                 Activación del Producto
               </h2>
-              <p className="text-xs text-slate-700 dark:text-slate-300 font-medium mt-1">
+              <p className="text-xs text-slate-700 dark:text-zinc-300 font-medium mt-1">
                 Para utilizar este software en tu computadora o celular, introduce tu clave de licencia registrada.
               </p>
             </div>
           )}
 
           {/* Machine / Device ID Card */}
-          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[11px] font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+              <span className="text-[11px] font-black uppercase tracking-wider text-slate-700 dark:text-zinc-300 flex items-center gap-1.5">
                 <Laptop className="w-3.5 h-3.5 text-orange-500" />
                 ID de Este Dispositivo / Equipo:
               </span>
@@ -123,10 +123,10 @@ export const LicenseActivationScreen: React.FC = () => {
                 )}
               </button>
             </div>
-            <div className="font-mono text-sm font-black text-black dark:text-white select-all bg-white dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-center tracking-wider">
+            <div className="font-mono text-sm font-black text-slate-800 dark:text-zinc-100 select-all bg-white dark:bg-zinc-900 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-700 text-center tracking-wider">
               {license.deviceId}
             </div>
-            <p className="text-[10px] text-slate-700 dark:text-slate-300 mt-1.5 text-center">
+            <p className="text-[10px] text-slate-700 dark:text-zinc-300 mt-1.5 text-center">
               Proporciona este código al administrador si tu licencia es personalizada para este equipo.
             </p>
           </div>
@@ -142,7 +142,7 @@ export const LicenseActivationScreen: React.FC = () => {
           {/* Activation Form */}
           <form onSubmit={handleActivate} className="space-y-4">
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-800 dark:text-zinc-100 uppercase tracking-wider mb-1.5">
                 Titular o Empresa (Opcional)
               </label>
               <input
@@ -150,12 +150,12 @@ export const LicenseActivationScreen: React.FC = () => {
                 value={licensedTo}
                 onChange={(e) => setLicensedTo(e.target.value)}
                 placeholder="Ej. Comercial San José o tu nombre"
-                className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-800 dark:text-zinc-100 uppercase tracking-wider mb-1.5">
                 Clave de Licencia *
               </label>
               <input
@@ -163,7 +163,7 @@ export const LicenseActivationScreen: React.FC = () => {
                 value={licenseKey}
                 onChange={(e) => setLicenseKey(e.target.value.toUpperCase())}
                 placeholder="RON-XXXX-XXXX-XXXX"
-                className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-mono font-black text-black dark:text-white tracking-widest uppercase focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-mono font-black text-slate-800 dark:text-zinc-100 tracking-widest uppercase focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 required
               />
             </div>
@@ -179,7 +179,7 @@ export const LicenseActivationScreen: React.FC = () => {
           </form>
 
           {/* Contact / License Request Option */}
-          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-3">
+          <div className="pt-2 border-t border-slate-100 dark:border-zinc-800 space-y-3">
             <a
               href={`https://wa.me/?text=${whatsappMessage}`}
               target="_blank"
@@ -192,9 +192,9 @@ export const LicenseActivationScreen: React.FC = () => {
           </div>
 
           {/* Quick hint for master developer access */}
-          <div className="text-[11px] text-center text-slate-600 dark:text-slate-400 flex items-center justify-center gap-1 font-medium">
+          <div className="text-[11px] text-center text-slate-600 dark:text-zinc-400 flex items-center justify-center gap-1 font-medium">
             <HelpCircle className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            <span>Clave de prueba maestra: <strong className="font-mono text-black dark:text-white">RON-MASTER-LIFETIME</strong></span>
+            <span>Clave de prueba maestra: <strong className="font-mono text-slate-800 dark:text-zinc-100">RON-MASTER-LIFETIME</strong></span>
           </div>
         </div>
       </div>

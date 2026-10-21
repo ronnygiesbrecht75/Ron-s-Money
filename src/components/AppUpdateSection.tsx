@@ -90,26 +90,26 @@ export const AppUpdateSection: React.FC = () => {
   };
 
   return (
-    <div id="section-app-updates" className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs space-y-6">
+    <div id="section-app-updates" className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-zinc-800">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-orange-50 dark:bg-orange-950/60 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-800/40 mb-1">
             <Sparkles className="w-3.5 h-3.5 text-orange-500" />
             Actualizaciones In-App
           </div>
-          <h3 className="text-lg font-black text-black dark:text-white flex items-center gap-2">
+          <h3 className="text-lg font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2">
             <DownloadCloud className="w-5 h-5 text-orange-500" />
             Actualizaciones del Sistema
           </h3>
-          <p className="text-xs text-slate-700 dark:text-slate-300 font-medium mt-0.5">
+          <p className="text-xs text-slate-700 dark:text-zinc-300 font-medium mt-0.5">
             Busca, descarga e instala nuevas versiones directamente desde la aplicación sin perder tus datos.
           </p>
         </div>
 
         {/* Version Badge & Platform */}
         <div className="flex items-center gap-2">
-          <div className="px-3.5 py-1.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-black text-slate-800 dark:text-slate-200 flex items-center gap-2">
+          <div className="px-3.5 py-1.5 rounded-2xl bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs font-black text-slate-800 dark:text-zinc-200 flex items-center gap-2">
             {platform === 'android' && <Smartphone className="w-4 h-4 text-emerald-600" />}
             {platform === 'windows' && <Monitor className="w-4 h-4 text-blue-600" />}
             {platform === 'web' && <Globe className="w-4 h-4 text-purple-600" />}
@@ -119,10 +119,10 @@ export const AppUpdateSection: React.FC = () => {
       </div>
 
       {/* Repository Config Card */}
-      <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-3">
+      <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs font-black text-slate-900 dark:text-white">
-            <Github className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+            <Github className="w-4 h-4 text-slate-700 dark:text-zinc-300" />
             <span>Repositorio de Versiones en GitHub</span>
           </div>
           {!isEditingRepo ? (
@@ -153,17 +153,17 @@ export const AppUpdateSection: React.FC = () => {
               value={repoName}
               onChange={(e) => setRepoName(e.target.value)}
               placeholder="tu-usuario/rons-money"
-              className="flex-1 px-3 py-2 text-xs font-mono font-bold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-xl text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+              className="flex-1 px-3 py-2 text-xs font-mono font-bold bg-white dark:bg-zinc-900 border border-slate-300 dark:border-zinc-600 rounded-xl text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
             />
           </div>
         ) : (
-          <div className="flex items-center justify-between text-xs font-mono text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900/80 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
+          <div className="flex items-center justify-between text-xs font-mono text-slate-700 dark:text-zinc-300 bg-white dark:bg-zinc-900/80 px-3 py-2 rounded-xl border border-slate-200 dark:border-zinc-700">
             <span>https://github.com/{repoName}</span>
             <a
               href={`https://github.com/${repoName}/releases`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-700 hover:text-black dark:hover:text-white"
+              className="text-slate-600 hover:text-slate-900 dark:hover:text-white"
               title="Abrir en GitHub"
             >
               <ExternalLink className="w-3.5 h-3.5" />
@@ -211,7 +211,7 @@ export const AppUpdateSection: React.FC = () => {
           type="button"
           id="btn-simulate-update-flow"
           onClick={handleSimulateUpdate}
-          className="p-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-black dark:text-white font-black text-xs flex items-center justify-center gap-2 transition-all shadow-2xs cursor-pointer"
+          className="p-3.5 rounded-2xl border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-700/80 text-slate-800 dark:text-zinc-200 font-black text-xs flex items-center justify-center gap-2 transition-all shadow-2xs cursor-pointer"
         >
           <Sparkles className="w-4 h-4 text-amber-500" />
           <span>Probar Descarga & Instalación Directa</span>
@@ -224,7 +224,7 @@ export const AppUpdateSection: React.FC = () => {
           <HelpCircle className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
           <span>¿Cómo se realiza la actualización dentro de la App?</span>
         </div>
-        <ul className="list-disc list-inside space-y-1.5 text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
+        <ul className="list-disc list-inside space-y-1.5 text-slate-700 dark:text-zinc-300 font-medium leading-relaxed">
           <li><strong>Elegir en Mis Archivos:</strong> Puedes seleccionar exactamente en qué carpeta de tu dispositivo (Descargas, Documentos, Tarjeta SD o almacenamiento interno) se descargará y guardará la actualización.</li>
           <li><strong>En Celular (Android):</strong> Se descarga el paquete oficial y se ejecuta directamente el instalador oficial de Android en pantalla, <em>sin necesidad de tener que ir a buscar el archivo APK manualmente</em>.</li>
           <li><strong>En Computadora (Windows):</strong> Se ejecuta directamente el instalador oficial en pantalla sin tener que buscar en tus carpetas.</li>

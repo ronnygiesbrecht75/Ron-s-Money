@@ -99,18 +99,18 @@ export const LicenseManagerSection: React.FC = () => {
     : '';
 
   return (
-    <div id="license-manager-section" className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs space-y-6">
+    <div id="license-manager-section" className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800 gap-2">
         <div className="flex items-center gap-2.5">
           <div className="p-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/60 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-800/60">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2">
               Licencia de Software & Activación
             </h3>
-            <p className="text-xs text-slate-700 dark:text-slate-300 font-medium">
+            <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
               Información de la licencia activa y generador de claves para clientes.
             </p>
           </div>
@@ -127,26 +127,26 @@ export const LicenseManagerSection: React.FC = () => {
       </div>
 
       {/* 1. ESTADO DE LA LICENCIA ACTUAL */}
-      <div className="rounded-2xl p-5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+      <div className="rounded-2xl p-5 bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Titular */}
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-            <span className="text-[11px] font-black uppercase text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+          <div className="p-3 bg-white dark:bg-zinc-800 rounded-xl border border-slate-200 dark:border-zinc-700">
+            <span className="text-[11px] font-black uppercase text-slate-600 dark:text-zinc-400 flex items-center gap-1.5">
               <User className="w-3.5 h-3.5 text-orange-500" />
               Titular Registrado:
             </span>
-            <div className="text-xs font-black text-black dark:text-white mt-1 truncate">
+            <div className="text-xs font-black text-slate-800 dark:text-zinc-100 mt-1 truncate">
               {license.licensedTo || 'Usuario General'}
             </div>
           </div>
 
           {/* Tipo de Licencia */}
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-            <span className="text-[11px] font-black uppercase text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+          <div className="p-3 bg-white dark:bg-zinc-800 rounded-xl border border-slate-200 dark:border-zinc-700">
+            <span className="text-[11px] font-black uppercase text-slate-600 dark:text-zinc-400 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-orange-500" />
               Modalidad:
             </span>
-            <div className="text-xs font-black text-black dark:text-white mt-1">
+            <div className="text-xs font-black text-slate-800 dark:text-zinc-100 mt-1">
               {license.licenseType === 'LIFETIME' && 'Vitalicia (De por vida)'}
               {license.licenseType === 'ANNUAL' && 'Suscripción Anual'}
               {license.licenseType === 'MONTHLY' && 'Mensual'}
@@ -154,35 +154,35 @@ export const LicenseManagerSection: React.FC = () => {
           </div>
 
           {/* Vencimiento */}
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-            <span className="text-[11px] font-black uppercase text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+          <div className="p-3 bg-white dark:bg-zinc-800 rounded-xl border border-slate-200 dark:border-zinc-700">
+            <span className="text-[11px] font-black uppercase text-slate-600 dark:text-zinc-400 flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-orange-500" />
               Vigencia / Vencimiento:
             </span>
-            <div className="text-xs font-black text-black dark:text-white mt-1 truncate">
+            <div className="text-xs font-black text-slate-800 dark:text-zinc-100 mt-1 truncate">
               {formatExpiry()}
             </div>
           </div>
 
           {/* Device ID */}
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-            <span className="text-[11px] font-black uppercase text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+          <div className="p-3 bg-white dark:bg-zinc-800 rounded-xl border border-slate-200 dark:border-zinc-700">
+            <span className="text-[11px] font-black uppercase text-slate-600 dark:text-zinc-400 flex items-center gap-1.5">
               <Laptop className="w-3.5 h-3.5 text-orange-500" />
               ID de Este Equipo:
             </span>
-            <div className="text-xs font-mono font-black text-black dark:text-white mt-1 truncate">
+            <div className="text-xs font-mono font-black text-slate-800 dark:text-zinc-100 mt-1 truncate">
               {license.deviceId}
             </div>
           </div>
         </div>
 
         {/* Current Key Card */}
-        <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="mt-4 pt-4 border-t border-slate-200 dark:border-zinc-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-black text-slate-700 dark:text-slate-300">
+            <span className="text-xs font-black text-slate-600 dark:text-zinc-400">
               Clave Instalada:
             </span>
-            <span className="font-mono text-xs font-black text-orange-600 dark:text-orange-400 bg-white dark:bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-700">
+            <span className="font-mono text-xs font-black text-orange-600 dark:text-orange-400 bg-white dark:bg-zinc-900 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-zinc-700">
               {license.licenseKey || 'Sin clave'}
             </span>
             {license.licenseKey && (
@@ -190,7 +190,7 @@ export const LicenseManagerSection: React.FC = () => {
                 type="button"
                 onClick={handleCopyCurrent}
                 title="Copiar clave"
-                className="p-1 text-slate-500 hover:text-black dark:hover:text-white cursor-pointer"
+                className="p-1 text-slate-500 hover:text-slate-800 dark:hover:text-zinc-200 cursor-pointer"
               >
                 {copiedCurrent ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
               </button>
@@ -202,7 +202,7 @@ export const LicenseManagerSection: React.FC = () => {
               type="button"
               id="btn-change-license"
               onClick={() => setShowChangeModal(true)}
-              className="px-3 py-1.5 rounded-xl text-xs font-black border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-black dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs cursor-pointer flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-xl text-xs font-black border border-slate-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-700 transition-colors shadow-2xs cursor-pointer flex items-center gap-1.5"
             >
               <RotateCcw className="w-3.5 h-3.5 text-orange-500" />
               <span>Cambiar Clave</span>
@@ -235,13 +235,13 @@ export const LicenseManagerSection: React.FC = () => {
         <form onSubmit={handleGenerate} className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {/* Tipo de Licencia */}
           <div>
-            <label className="block text-[11px] font-black uppercase text-black dark:text-white mb-1">
+            <label className="block text-[11px] font-black uppercase text-slate-700 dark:text-zinc-200 mb-1">
               Tipo de Licencia
             </label>
             <select
               value={genType}
               onChange={(e) => setGenType(e.target.value as LicenseType)}
-              className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:ring-2 focus:ring-orange-500"
             >
               <option value="LIFETIME">Vitalicia (Permanente sin vencimiento)</option>
               <option value="ANNUAL">1 Año (Anual)</option>
@@ -251,7 +251,7 @@ export const LicenseManagerSection: React.FC = () => {
 
           {/* Nombre del Cliente */}
           <div>
-            <label className="block text-[11px] font-black uppercase text-black dark:text-white mb-1">
+            <label className="block text-[11px] font-black uppercase text-slate-700 dark:text-zinc-200 mb-1">
               Nombre del Cliente / Negocio
             </label>
             <input
@@ -259,13 +259,13 @@ export const LicenseManagerSection: React.FC = () => {
               value={genClientName}
               onChange={(e) => setGenClientName(e.target.value)}
               placeholder="Ej. Juan Pérez o Empresa X"
-              className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:ring-2 focus:ring-orange-500"
             />
           </div>
 
           {/* Device ID (Opcional) */}
           <div>
-            <label className="block text-[11px] font-black uppercase text-black dark:text-white mb-1">
+            <label className="block text-[11px] font-black uppercase text-slate-700 dark:text-zinc-200 mb-1">
               ID del Equipo (Opcional)
             </label>
             <input
@@ -273,7 +273,7 @@ export const LicenseManagerSection: React.FC = () => {
               value={genDeviceId}
               onChange={(e) => setGenDeviceId(e.target.value)}
               placeholder="Dejar vacío para cualquier PC"
-              className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-mono font-bold text-black dark:text-white focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-mono font-bold text-slate-800 dark:text-zinc-100 focus:ring-2 focus:ring-orange-500"
             />
           </div>
 
@@ -290,12 +290,12 @@ export const LicenseManagerSection: React.FC = () => {
 
         {/* Clave Generada Result */}
         {generatedKey && (
-          <div className="p-4 rounded-xl bg-white dark:bg-slate-900 border-2 border-orange-400 dark:border-orange-600 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-in fade-in">
+          <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border-2 border-orange-400 dark:border-orange-600 flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-in fade-in">
             <div>
               <span className="text-[10px] font-black uppercase tracking-wider text-orange-600 dark:text-orange-400">
                 Clave Generada Lista para Enviar:
               </span>
-              <div className="font-mono text-base sm:text-lg font-black text-black dark:text-white select-all tracking-wider">
+              <div className="font-mono text-base sm:text-lg font-black text-slate-800 dark:text-zinc-100 select-all tracking-wider">
                 {generatedKey}
               </div>
             </div>
@@ -304,7 +304,7 @@ export const LicenseManagerSection: React.FC = () => {
               <button
                 type="button"
                 onClick={handleCopyGenerated}
-                className="px-3.5 py-2 rounded-xl text-xs font-black bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-black dark:text-white transition-colors flex items-center gap-1.5 cursor-pointer"
+                className="px-3.5 py-2 rounded-xl text-xs font-black bg-slate-100 hover:bg-slate-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-200 transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 {copiedGenerated ? (
                   <>
@@ -336,11 +336,11 @@ export const LicenseManagerSection: React.FC = () => {
       {/* Modal: Cambiar Clave */}
       {showChangeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-          <div className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-2xl">
-            <h3 className="text-base font-black text-black dark:text-white mb-2">
+          <div className="w-full max-w-md bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-2xl">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 mb-2">
               Ingresar Nueva Clave de Licencia
             </h3>
-            <p className="text-xs text-slate-700 dark:text-slate-300 font-medium mb-4">
+            <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium mb-4">
               Ingresa una clave válida para actualizar tu tipo de licencia o renovar el software.
             </p>
 
@@ -352,7 +352,7 @@ export const LicenseManagerSection: React.FC = () => {
 
             <form onSubmit={handleChangeLicenseSubmit} className="space-y-4">
               <div>
-                <label className="block text-[11px] font-black uppercase text-black dark:text-white mb-1">
+                <label className="block text-[11px] font-black uppercase text-slate-700 dark:text-zinc-200 mb-1">
                   Nombre del Titular (Opcional)
                 </label>
                 <input
@@ -360,12 +360,12 @@ export const LicenseManagerSection: React.FC = () => {
                   value={newHolder}
                   onChange={(e) => setNewHolder(e.target.value)}
                   placeholder="Tu nombre o empresa"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white"
+                  className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-black uppercase text-black dark:text-white mb-1">
+                <label className="block text-[11px] font-black uppercase text-slate-700 dark:text-zinc-200 mb-1">
                   Nueva Clave *
                 </label>
                 <input
@@ -373,7 +373,7 @@ export const LicenseManagerSection: React.FC = () => {
                   value={newKey}
                   onChange={(e) => setNewKey(e.target.value.toUpperCase())}
                   placeholder="RON-XXXX-XXXX-XXXX"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-mono font-black text-black dark:text-white"
+                  className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-mono font-black text-slate-800 dark:text-zinc-100"
                   required
                 />
               </div>
@@ -382,7 +382,7 @@ export const LicenseManagerSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setShowChangeModal(false)}
-                  className="px-4 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl"
+                  className="px-4 py-2 text-xs font-bold text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-xl"
                 >
                   Cancelar
                 </button>

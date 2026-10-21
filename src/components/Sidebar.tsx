@@ -94,12 +94,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
       {/* Sidebar Container */}
       <aside
         id="app-left-sidebar"
-        className={`fixed top-0 left-0 bottom-0 z-40 w-72 bg-[#00382b] dark:bg-[#01261d] border-r border-[#024936] dark:border-[#02382b] flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 text-white shadow-xl ${
+        className={`fixed top-0 left-0 bottom-0 z-40 w-72 bg-[#00382b] dark:bg-black border-r border-[#024936] dark:border-zinc-800 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 text-white shadow-xl ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* App Branding */}
-        <div className="p-5 border-b border-[#024936] dark:border-[#02382b] flex items-center justify-between bg-[#00382b] dark:bg-[#01261d]">
+        <div className="p-5 border-b border-[#024936] dark:border-zinc-800 flex items-center justify-between bg-[#00382b] dark:bg-black">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-white text-[#00382b] flex items-center justify-center font-black text-lg shadow-md border-2 border-emerald-200/30">
               <Sparkles className="w-5 h-5 text-[#00382b]" />
@@ -116,8 +116,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
         </div>
 
         {/* Balance Mini Preview Card */}
-        <div className="mx-4 my-3.5 p-3.5 rounded-2xl bg-[#024936]/80 border border-emerald-400/20 text-white shadow-xs">
-          <div className="flex items-center justify-between text-[10px] font-black text-emerald-200 mb-1">
+        <div className="mx-4 my-3.5 p-3.5 rounded-2xl bg-[#024936]/80 dark:bg-zinc-900 border border-emerald-400/20 dark:border-zinc-800 text-white shadow-xs">
+          <div className="flex items-center justify-between text-[10px] font-black text-emerald-200 dark:text-zinc-300 mb-1">
             <span className="tracking-wider uppercase">SALDO DISPONIBLE</span>
             <span className="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded-full font-black shadow-xs">
               Total
@@ -127,7 +127,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
             {formatCurrency(pygTotal.net, 'PYG')}
           </div>
           {usdTotal.net !== 0 && (
-            <div className="text-xs font-bold text-emerald-200 font-mono mt-0.5">
+            <div className="text-xs font-bold text-emerald-200 dark:text-zinc-300 font-mono mt-0.5">
               + {formatCurrency(usdTotal.net, 'USD')}
             </div>
           )}
@@ -135,7 +135,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
 
         {/* Navigation List */}
         <nav className="flex-1 overflow-y-auto px-3 py-2 space-y-1.5 scrollbar-thin">
-          <div className="px-3 pb-1 text-[11px] font-black text-emerald-400 uppercase tracking-wider">
+          <div className="px-3 pb-1 text-[11px] font-black text-emerald-400 dark:text-zinc-400 uppercase tracking-wider">
             Menú Principal
           </div>
           {navItems.map((item) => {
@@ -150,11 +150,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm transition-all group cursor-pointer ${
                   isActive
                     ? 'bg-orange-500 text-white shadow-md shadow-orange-500/30 font-black'
-                    : 'text-emerald-50 font-bold hover:bg-[#024936] hover:text-white'
+                    : 'text-emerald-50 dark:text-zinc-200 font-bold hover:bg-[#024936] dark:hover:bg-zinc-900 hover:text-white'
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`p-1.5 rounded-xl ${isActive ? 'bg-orange-600 text-white' : 'text-emerald-300 group-hover:text-white'}`}>
+                  <div className={`p-1.5 rounded-xl ${isActive ? 'bg-orange-600 text-white' : 'text-emerald-300 dark:text-zinc-400 group-hover:text-white'}`}>
                     <Icon className="w-4 h-4" />
                   </div>
                   <span className="truncate">{item.label}</span>
@@ -168,7 +168,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
         </nav>
 
         {/* User & Lock Footer */}
-        <div className="p-4 border-t border-[#024936] dark:border-[#02382b] bg-[#012d22] dark:bg-[#012019] space-y-2.5">
+        <div className="p-4 border-t border-[#024936] dark:border-zinc-800 bg-[#012d22] dark:bg-black space-y-2.5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5 min-w-0">
               <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-black text-xs shadow-xs">
@@ -195,7 +195,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
               id="btn-sidebar-lock"
               onClick={logout}
               title="Bloquear sesión"
-              className="p-2 text-emerald-200 hover:text-white hover:bg-orange-500 rounded-xl transition-all cursor-pointer"
+              className="p-2 text-emerald-200 dark:text-zinc-300 hover:text-white hover:bg-orange-500 rounded-xl transition-all cursor-pointer"
             >
               <Lock className="w-4 h-4" />
             </button>
@@ -205,9 +205,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
           <button
             type="button"
             onClick={handleGoToUpdates}
-            className="w-full py-1.5 px-3 rounded-xl bg-white/5 hover:bg-white/10 text-[11px] font-bold text-emerald-100 flex items-center justify-between transition-colors border border-emerald-400/10 cursor-pointer"
+            className="w-full py-1.5 px-3 rounded-xl bg-white/5 dark:bg-zinc-900 hover:bg-white/10 dark:hover:bg-zinc-800 text-[11px] font-bold text-emerald-100 dark:text-zinc-200 flex items-center justify-between transition-colors border border-emerald-400/10 dark:border-zinc-800 cursor-pointer"
           >
-            <span className="text-slate-300">v{CURRENT_APP_VERSION}</span>
+            <span className="text-zinc-300">v{CURRENT_APP_VERSION}</span>
             <span className="text-orange-400 flex items-center gap-1 font-black text-[10px]">
               <DownloadCloud className="w-3.5 h-3.5" />
               Actualizaciones

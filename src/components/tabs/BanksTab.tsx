@@ -134,10 +134,10 @@ export const BanksTab: React.FC = () => {
             <Landmark className="w-3.5 h-3.5" />
             Entidades & Cuentas
           </div>
-          <h2 className="text-2xl font-black tracking-tight text-black dark:text-white mt-1">
+          <h2 className="text-2xl font-black tracking-tight text-slate-800 dark:text-zinc-100 mt-1">
             Gestión de Bancos
           </h2>
-          <p className="text-xs text-slate-700 dark:text-slate-300 font-medium">
+          <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
             Administra tus cuentas bancarias y efectivo en Guaraníes (PYG ₲) y Dólares (USD $).
           </p>
         </div>
@@ -153,7 +153,7 @@ export const BanksTab: React.FC = () => {
 
       {/* Global Balances Summary */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="p-6 rounded-3xl bg-slate-900 dark:bg-slate-800 text-white shadow-md relative overflow-hidden border border-slate-800">
+        <div className="p-6 rounded-3xl bg-slate-900 dark:bg-zinc-800 text-white shadow-md relative overflow-hidden border border-slate-800">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">
               Saldo Total en Guaraníes
@@ -172,7 +172,7 @@ export const BanksTab: React.FC = () => {
           </div>
         </div>
 
-        <div className="p-6 rounded-3xl bg-slate-900 dark:bg-slate-800 text-white shadow-md border border-slate-800 relative overflow-hidden">
+        <div className="p-6 rounded-3xl bg-slate-900 dark:bg-zinc-800 text-white shadow-md border border-slate-800 relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">
               Saldo Total en Dólares
@@ -195,9 +195,9 @@ export const BanksTab: React.FC = () => {
       {/* Grid: Form (Add/Edit) + Bank Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Form: Tabla para Registrar / Editar Bancos */}
-        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
-            <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2">
+        <div className="lg:col-span-5 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-zinc-800">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2">
               <Plus className="w-4 h-4 text-orange-500" />
               {editingBankId ? 'Editar Banco' : 'Agregar Nuevo Banco'}
             </h3>
@@ -205,7 +205,7 @@ export const BanksTab: React.FC = () => {
               <button
                 type="button"
                 onClick={handleCancelForm}
-                className="text-xs text-slate-500 hover:text-black dark:hover:text-white flex items-center gap-1 font-bold"
+                className="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-zinc-200 flex items-center gap-1 font-bold"
               >
                 <X className="w-3.5 h-3.5" />
                 <span>Cancelar</span>
@@ -222,7 +222,7 @@ export const BanksTab: React.FC = () => {
 
             {/* Currency Choice (Guaraní y Dólares) */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Moneda de la Cuenta *
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -233,7 +233,7 @@ export const BanksTab: React.FC = () => {
                   className={`py-2.5 px-3 rounded-xl border text-xs font-black flex items-center justify-center gap-1.5 transition-all ${
                     currency === 'PYG'
                       ? 'bg-orange-500 text-white border-orange-500 shadow-xs'
-                      : 'bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-black dark:text-white'
+                      : 'bg-white dark:bg-zinc-800 border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-200'
                   }`}
                 >
                   <span>Guaraníes (₲ PYG)</span>
@@ -245,7 +245,7 @@ export const BanksTab: React.FC = () => {
                   className={`py-2.5 px-3 rounded-xl border text-xs font-black flex items-center justify-center gap-1.5 transition-all ${
                     currency === 'USD'
                       ? 'bg-orange-500 text-white border-orange-500 shadow-xs'
-                      : 'bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-black dark:text-white'
+                      : 'bg-white dark:bg-zinc-800 border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-200'
                   }`}
                 >
                   <span>Dólares ($ USD)</span>
@@ -255,7 +255,7 @@ export const BanksTab: React.FC = () => {
 
             {/* Bank Name */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Nombre del Banco / Cuenta *
               </label>
               <input
@@ -267,14 +267,14 @@ export const BanksTab: React.FC = () => {
                   setFormError(null);
                 }}
                 placeholder="Ej: Banco Continental, Itaú, Efectivo..."
-                className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                className="w-full px-3.5 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 required
               />
             </div>
 
             {/* Initial Balance */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Saldo Inicial ({currency === 'PYG' ? '₲' : '$'})
               </label>
               <input
@@ -284,14 +284,14 @@ export const BanksTab: React.FC = () => {
                 value={initialBalanceStr}
                 onChange={(e) => setInitialBalanceStr(e.target.value)}
                 placeholder={currency === 'PYG' ? 'Ej: 5000000' : 'Ej: 1000'}
-                className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-mono font-black text-black dark:text-white placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                className="w-full px-3.5 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-mono font-black text-slate-800 dark:text-zinc-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
             {/* Account Number or Reference */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                   N° de Cuenta / Ref
                 </label>
                 <input
@@ -300,19 +300,19 @@ export const BanksTab: React.FC = () => {
                   value={accountNumber}
                   onChange={(e) => setAccountNumber(e.target.value)}
                   placeholder="Ej: •••• 4821"
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                   Tipo de Cuenta
                 </label>
                 <select
                   id="select-bank-type"
                   value={bankType}
                   onChange={(e) => setBankType(e.target.value as Bank['type'])}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 >
                   <option value="checking">Cuenta Corriente</option>
                   <option value="savings">Caja de Ahorro</option>
@@ -324,10 +324,10 @@ export const BanksTab: React.FC = () => {
 
             {/* Color Tag */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Color de la Tarjeta
               </label>
-              <div className="flex flex-wrap gap-2 p-2.5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+              <div className="flex flex-wrap gap-2 p-2.5 bg-white dark:bg-zinc-800 rounded-xl border border-slate-200 dark:border-zinc-700">
                 {BANK_COLORS.map((c) => (
                   <button
                     key={c}
@@ -358,12 +358,12 @@ export const BanksTab: React.FC = () => {
 
         {/* Bank List & Cards */}
         <div className="lg:col-span-7 space-y-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
-              <h3 className="text-base font-black text-black dark:text-white">
+          <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-zinc-800">
+              <h3 className="text-base font-black text-slate-800 dark:text-zinc-100">
                 Lista de Bancos Registrados ({banks.length})
               </h3>
-              <span className="text-xs font-bold text-black dark:text-slate-300">
+              <span className="text-xs font-bold text-slate-600 dark:text-zinc-400">
                 Saldos en tiempo real
               </span>
             </div>
@@ -377,7 +377,7 @@ export const BanksTab: React.FC = () => {
                   <div
                     key={b.id}
                     id={`bank-card-display-${b.id}`}
-                    className="p-5 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/90 flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 transition-all shadow-2xs"
+                    className="p-5 rounded-3xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-800/90 flex flex-col justify-between relative overflow-hidden group hover:border-slate-300 transition-all shadow-2xs"
                   >
                     {/* Top color accent strip */}
                     <div 
@@ -392,31 +392,31 @@ export const BanksTab: React.FC = () => {
                             className="w-3.5 h-3.5 rounded-full shadow-2xs" 
                             style={{ backgroundColor: b.color }} 
                           />
-                          <h4 className="font-black text-sm text-black dark:text-white">
+                          <h4 className="font-black text-sm text-slate-800 dark:text-zinc-100">
                             {b.name}
                           </h4>
                         </div>
-                        <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-100 text-black dark:bg-slate-700 dark:text-white border border-slate-200 dark:border-slate-600">
+                        <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 dark:bg-zinc-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-600">
                           {b.currency}
                         </span>
                       </div>
 
-                      <div className="text-[11px] text-black dark:text-slate-300 mt-1 font-mono font-bold">
+                      <div className="text-[11px] text-slate-600 dark:text-zinc-400 mt-1 font-mono font-bold">
                         {b.accountNumber || 'Cuenta sin N°'}
                       </div>
 
                       <div className="mt-4">
-                        <div className="text-[10px] font-black text-black dark:text-slate-300 uppercase tracking-wider">
+                        <div className="text-[10px] font-black text-slate-600 dark:text-zinc-400 uppercase tracking-wider">
                           Saldo Actual Calculado:
                         </div>
-                        <div className="text-xl font-black font-mono text-black dark:text-white mt-0.5">
+                        <div className="text-xl font-black font-mono text-slate-800 dark:text-zinc-100 mt-0.5">
                           {formatCurrency(currentBalance, b.currency)}
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
-                      <span className="text-[10px] text-black dark:text-slate-300 font-bold">
+                    <div className="mt-4 pt-3 border-t border-slate-100 dark:border-zinc-700 flex items-center justify-between">
+                      <span className="text-[10px] text-slate-600 dark:text-zinc-400 font-bold">
                         {txCount} transacciones
                       </span>
 

@@ -36,17 +36,17 @@ const MainDashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#f4f7f6] dark:bg-slate-950 text-black dark:text-white flex flex-col antialiased transition-colors duration-200">
+    <div className="min-h-screen bg-[#f4f7f6] dark:bg-black text-slate-800 dark:text-zinc-100 flex flex-col antialiased transition-colors duration-200">
       {/* Left Sidebar (Desktop + Drawer for Mobile) */}
       <Sidebar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
 
       {/* Main Content Area (Offset by 72 (18rem) on large screens) */}
-      <div className="lg:pl-72 flex flex-col flex-1 min-w-0 bg-[#f4f7f6] dark:bg-slate-950">
+      <div className="lg:pl-72 flex flex-col flex-1 min-w-0 bg-[#f4f7f6] dark:bg-black">
         {/* Top Header */}
         <Header onToggleMobileSidebar={() => setMobileOpen(true)} />
 
         {/* Dynamic Tab Content */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto pb-24 lg:pb-12 bg-[#f4f7f6] dark:bg-slate-950">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto pb-24 lg:pb-12 bg-[#f4f7f6] dark:bg-black">
           {activeTab === 'add_transaction' && <TransactionFormTab />}
           {activeTab === 'expenses' && <ExpensesTab />}
           {activeTab === 'income' && <IncomeTab />}
@@ -59,12 +59,12 @@ const MainDashboard: React.FC = () => {
         {/* Mobile Quick Bottom Navigation Bar */}
         <div 
           id="mobile-bottom-navigation"
-          className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#00382b] dark:bg-[#01261d] border-t border-[#024936] px-2 py-2 flex items-center justify-around shadow-2xl text-white"
+          className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#00382b] dark:bg-black border-t border-[#024936] dark:border-zinc-800 px-2 py-2 flex items-center justify-around shadow-2xl text-white"
         >
           <button
             onClick={() => setActiveTab('add_transaction')}
             className={`flex flex-col items-center gap-1 p-1.5 rounded-xl text-[10px] font-black ${
-              activeTab === 'add_transaction' ? 'text-amber-400 bg-white/10' : 'text-emerald-100'
+              activeTab === 'add_transaction' ? 'text-amber-400 bg-white/10' : 'text-emerald-100 dark:text-zinc-300'
             }`}
           >
             <PlusCircle className="w-5 h-5" />
@@ -74,7 +74,7 @@ const MainDashboard: React.FC = () => {
           <button
             onClick={() => setActiveTab('expenses')}
             className={`flex flex-col items-center gap-1 p-1.5 rounded-xl text-[10px] font-black ${
-              activeTab === 'expenses' ? 'text-amber-400 bg-white/10' : 'text-emerald-100'
+              activeTab === 'expenses' ? 'text-amber-400 bg-white/10' : 'text-emerald-100 dark:text-zinc-300'
             }`}
           >
             <ArrowDownRight className="w-5 h-5" />
@@ -84,7 +84,7 @@ const MainDashboard: React.FC = () => {
           <button
             onClick={() => setActiveTab('income')}
             className={`flex flex-col items-center gap-1 p-1.5 rounded-xl text-[10px] font-black ${
-              activeTab === 'income' ? 'text-amber-400 bg-white/10' : 'text-emerald-100'
+              activeTab === 'income' ? 'text-amber-400 bg-white/10' : 'text-emerald-100 dark:text-zinc-300'
             }`}
           >
             <ArrowUpRight className="w-5 h-5" />
@@ -94,7 +94,7 @@ const MainDashboard: React.FC = () => {
           <button
             onClick={() => setActiveTab('general_balance')}
             className={`flex flex-col items-center gap-1 p-1.5 rounded-xl text-[10px] font-black ${
-              activeTab === 'general_balance' ? 'text-amber-400 bg-white/10' : 'text-emerald-100'
+              activeTab === 'general_balance' ? 'text-amber-400 bg-white/10' : 'text-emerald-100 dark:text-zinc-300'
             }`}
           >
             <PieChart className="w-5 h-5" />
@@ -104,7 +104,7 @@ const MainDashboard: React.FC = () => {
           <button
             onClick={() => setActiveTab('banks')}
             className={`flex flex-col items-center gap-1 p-1.5 rounded-xl text-[10px] font-black ${
-              activeTab === 'banks' ? 'text-amber-400 bg-white/10' : 'text-emerald-100'
+              activeTab === 'banks' ? 'text-amber-400 bg-white/10' : 'text-emerald-100 dark:text-zinc-300'
             }`}
           >
             <Landmark className="w-5 h-5" />
@@ -114,7 +114,7 @@ const MainDashboard: React.FC = () => {
           <button
             onClick={() => setActiveTab('settings')}
             className={`flex flex-col items-center gap-1 p-1.5 rounded-xl text-[10px] font-black ${
-              activeTab === 'settings' ? 'text-amber-400 bg-white/10' : 'text-emerald-100'
+              activeTab === 'settings' ? 'text-amber-400 bg-white/10' : 'text-emerald-100 dark:text-zinc-300'
             }`}
           >
             <Settings className="w-5 h-5" />

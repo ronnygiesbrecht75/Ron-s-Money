@@ -115,14 +115,14 @@ export const CategoriesTab: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-white dark:bg-emerald-950/60 text-black dark:text-emerald-300 border border-slate-200 dark:border-emerald-800/40">
-            <FolderTree className="w-3.5 h-3.5 text-black" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800/40">
+            <FolderTree className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             Configuración de Categorías
           </div>
-          <h2 className="text-2xl font-black tracking-tight text-black dark:text-white mt-1">
+          <h2 className="text-2xl font-black tracking-tight text-slate-800 dark:text-zinc-100 mt-1">
             Categorías de Ingresos & Gastos
           </h2>
-          <p className="text-xs text-black dark:text-slate-300 font-medium">
+          <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
             Agrega o edita categorías personalizadas con íconos y colores para organizar tus finanzas.
           </p>
         </div>
@@ -130,7 +130,7 @@ export const CategoriesTab: React.FC = () => {
 
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="p-3.5 rounded-2xl bg-white dark:bg-emerald-950/60 border border-emerald-500 text-black dark:text-emerald-200 text-xs font-black flex items-center gap-2 shadow-xs">
+        <div className="p-3.5 rounded-2xl bg-white dark:bg-emerald-950/60 border border-emerald-500 text-emerald-800 dark:text-emerald-200 text-xs font-black flex items-center gap-2 shadow-xs">
           <Check className="w-4 h-4 text-emerald-600" />
           <span>{toastMessage}</span>
         </div>
@@ -139,17 +139,17 @@ export const CategoriesTab: React.FC = () => {
       {/* Form + Categories Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Form: Agregar / Editar Categoría */}
-        <div className="lg:col-span-5 bg-white dark:bg-[#12231e] border border-slate-200 dark:border-emerald-900/50 rounded-3xl p-6 shadow-xs">
-          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-emerald-900/40">
-            <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2">
-              <Plus className="w-4 h-4 text-black dark:text-emerald-400" />
+        <div className="lg:col-span-5 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-zinc-800">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2">
+              <Plus className="w-4 h-4 text-orange-500" />
               {editingCategoryId ? 'Editar Categoría' : 'Agregar Nueva Categoría'}
             </h3>
             {editingCategoryId && (
               <button
                 type="button"
                 onClick={handleCancelForm}
-                className="text-xs text-black hover:text-black flex items-center gap-1 font-black"
+                className="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-zinc-200 flex items-center gap-1 font-bold"
               >
                 <X className="w-3.5 h-3.5" />
                 <span>Cancelar</span>
@@ -166,7 +166,7 @@ export const CategoriesTab: React.FC = () => {
 
             {/* Type selector (Ingreso o Gasto) */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Tipo de Categoría *
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -177,7 +177,7 @@ export const CategoriesTab: React.FC = () => {
                   className={`py-2 px-3 rounded-xl border text-xs font-black flex items-center justify-center gap-1.5 transition-all ${
                     type === 'EXPENSE'
                       ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
-                      : 'bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-black dark:text-white'
+                      : 'bg-white dark:bg-zinc-800 border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-200'
                   }`}
                 >
                   <ArrowDownRight className="w-3.5 h-3.5" />
@@ -190,7 +190,7 @@ export const CategoriesTab: React.FC = () => {
                   className={`py-2 px-3 rounded-xl border text-xs font-black flex items-center justify-center gap-1.5 transition-all ${
                     type === 'INCOME'
                       ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
-                      : 'bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-black dark:text-white'
+                      : 'bg-white dark:bg-zinc-800 border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-200'
                   }`}
                 >
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -201,7 +201,7 @@ export const CategoriesTab: React.FC = () => {
 
             {/* Name */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Nombre de la Categoría *
               </label>
               <input
@@ -213,17 +213,17 @@ export const CategoriesTab: React.FC = () => {
                   setFormError(null);
                 }}
                 placeholder="Ej: Inversión en Cripto, Patio..."
-                className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                className="w-full px-3.5 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 required
               />
             </div>
 
             {/* Color Palette */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Color Identificador
               </label>
-              <div className="flex flex-wrap gap-2 p-2.5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+              <div className="flex flex-wrap gap-2 p-2.5 bg-white dark:bg-zinc-800 rounded-xl border border-slate-200 dark:border-zinc-700">
                 {AVAILABLE_COLORS.map((c) => (
                   <button
                     key={c}
@@ -240,10 +240,10 @@ export const CategoriesTab: React.FC = () => {
 
             {/* Icon Picker */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Ícono
               </label>
-              <div className="grid grid-cols-5 gap-2 max-h-36 overflow-y-auto p-2 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 scrollbar-thin">
+              <div className="grid grid-cols-5 gap-2 max-h-36 overflow-y-auto p-2 bg-white dark:bg-zinc-800 rounded-xl border border-slate-200 dark:border-zinc-700 scrollbar-thin">
                 {AVAILABLE_ICONS.map((ic) => {
                   const isSelected = iconName === ic;
                   return (
@@ -254,7 +254,7 @@ export const CategoriesTab: React.FC = () => {
                       className={`p-2 rounded-lg flex items-center justify-center transition-all ${
                         isSelected 
                           ? 'bg-orange-500 text-white shadow-xs' 
-                          : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                          : 'text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-700'
                       }`}
                     >
                       <CategoryIcon name={ic} size={18} />
@@ -279,21 +279,21 @@ export const CategoriesTab: React.FC = () => {
         </div>
 
         {/* Categories List */}
-        <div className="lg:col-span-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
-            <h3 className="text-base font-black text-black dark:text-white">
+        <div className="lg:col-span-7 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-zinc-800">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100">
               Lista de Categorías ({filteredCategories.length})
             </h3>
 
             {/* Tab filter inside */}
-            <div className="inline-flex p-1 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="inline-flex p-1 bg-white dark:bg-zinc-800 rounded-xl border border-slate-200 dark:border-zinc-700">
               <button
                 type="button"
                 onClick={() => setFilterType('ALL')}
                 className={`px-3 py-1 rounded-lg text-xs font-black transition-all ${
                   filterType === 'ALL'
                     ? 'bg-orange-500 text-white shadow-xs'
-                    : 'text-black dark:text-slate-300'
+                    : 'text-slate-600 dark:text-zinc-400'
                 }`}
               >
                 Todas
@@ -304,7 +304,7 @@ export const CategoriesTab: React.FC = () => {
                 className={`px-3 py-1 rounded-lg text-xs font-black transition-all ${
                   filterType === 'EXPENSE'
                     ? 'bg-rose-600 text-white shadow-xs'
-                    : 'text-black dark:text-slate-300'
+                    : 'text-slate-600 dark:text-zinc-400'
                 }`}
               >
                 Gastos
@@ -315,7 +315,7 @@ export const CategoriesTab: React.FC = () => {
                 className={`px-3 py-1 rounded-lg text-xs font-black transition-all ${
                   filterType === 'INCOME'
                     ? 'bg-emerald-600 text-white shadow-xs'
-                    : 'text-black dark:text-slate-300'
+                    : 'text-slate-600 dark:text-zinc-400'
                 }`}
               >
                 Ingresos
@@ -331,7 +331,7 @@ export const CategoriesTab: React.FC = () => {
                 <div
                   key={cat.id}
                   id={`category-card-${cat.id}`}
-                  className="p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 flex items-center justify-between group hover:border-slate-300 transition-all shadow-2xs"
+                  className="p-3.5 rounded-2xl border border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800/80 flex items-center justify-between group hover:border-slate-300 transition-all shadow-2xs"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div
@@ -341,10 +341,10 @@ export const CategoriesTab: React.FC = () => {
                       <CategoryIcon name={cat.iconName} size={18} />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-xs font-black text-black dark:text-white truncate">
+                      <div className="text-xs font-black text-slate-800 dark:text-zinc-100 truncate">
                         {cat.name}
                       </div>
-                      <div className="text-[10px] text-black dark:text-slate-300 font-bold">
+                      <div className="text-[10px] text-slate-600 dark:text-zinc-400 font-bold">
                         {cat.type === 'INCOME' ? 'Ingreso' : 'Gasto'} • {txCount} transacciones
                       </div>
                     </div>

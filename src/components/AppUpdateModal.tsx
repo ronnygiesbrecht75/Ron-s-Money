@@ -262,10 +262,10 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
     >
       <div 
         id="modal-app-update-card"
-        className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col text-black dark:text-white transition-all transform animate-scale-up"
+        className="w-full max-w-lg bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col text-slate-800 dark:text-zinc-100 transition-all transform animate-scale-up"
       >
         {/* Top Header Banner */}
-        <div className="p-5 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-r from-orange-500/10 via-amber-500/10 to-emerald-500/10 dark:from-orange-950/30 dark:via-amber-950/20 dark:to-emerald-950/20 flex items-center justify-between">
+        <div className="p-5 border-b border-slate-200 dark:border-zinc-800 bg-gradient-to-r from-orange-500/10 via-amber-500/10 to-emerald-500/10 dark:from-orange-950/30 dark:via-amber-950/20 dark:to-emerald-950/20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-orange-500 flex items-center justify-center text-white shadow-md shadow-orange-500/30">
               <DownloadCloud className="w-5 h-5" />
@@ -281,7 +281,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                   </span>
                 )}
               </div>
-              <h2 className="text-base font-black text-black dark:text-white">
+              <h2 className="text-base font-black text-slate-800 dark:text-zinc-100">
                 {updateInfo.name || `Versión ${updateInfo.version}`}
               </h2>
             </div>
@@ -289,7 +289,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-slate-600 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -301,10 +301,10 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
           {step === 'details' && (
             <div className="space-y-5">
               {/* Version Comparison Card */}
-              <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700">
                 <div className="text-center sm:text-left">
-                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300">Versión actual</div>
-                  <div className="text-sm font-black text-slate-800 dark:text-slate-200 font-mono">
+                  <div className="text-[11px] font-bold text-slate-700 dark:text-zinc-300">Versión actual</div>
+                  <div className="text-sm font-black text-slate-800 dark:text-zinc-200 font-mono">
                     v{CURRENT_APP_VERSION}
                   </div>
                 </div>
@@ -320,7 +320,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
               </div>
 
               {/* Package Info Badge */}
-              <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-zinc-800/40 border border-slate-200 dark:border-zinc-700 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-xl bg-orange-100 dark:bg-orange-950/60 text-orange-600 dark:text-orange-400">
                     {platform === 'android' ? (
@@ -335,7 +335,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                     <div className="text-xs font-black font-mono text-slate-900 dark:text-white truncate">
                       {defaultFileName}
                     </div>
-                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                    <div className="text-[11px] text-slate-500 dark:text-zinc-400 font-medium">
                       Paquete oficial • {formatBytes(fileSize)}
                     </div>
                   </div>
@@ -354,18 +354,18 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                   </label>
                 </div>
 
-                <p className="text-[11px] text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
+                <p className="text-[11px] text-slate-700 dark:text-zinc-300 font-medium leading-relaxed">
                   Puedes elegir la carpeta exacta entre tus archivos (Descargas, Documentos, Tarjeta SD o cualquier carpeta de tu dispositivo).
                 </p>
 
                 {/* Current Selected Folder Display */}
-                <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-800/80 flex items-center justify-between gap-3">
+                <div className="p-3 rounded-xl bg-white dark:bg-zinc-900 border border-amber-300 dark:border-amber-800/80 flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div className="w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-950/60 text-orange-600 dark:text-orange-400 flex items-center justify-center shrink-0">
                       {selectedFolderName ? <FolderCheck className="w-4 h-4 text-emerald-600" /> : <Folder className="w-4 h-4" />}
                     </div>
                     <div className="min-w-0">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-400 block">
                         Ubicación seleccionada
                       </span>
                       <span className="text-xs font-black text-slate-900 dark:text-white truncate block">
@@ -404,7 +404,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                     <span className="font-bold text-slate-900 dark:text-white block">
                       Abrir selector de Mis Archivos para confirmar la carpeta al guardar
                     </span>
-                    <span className="text-[10px] text-slate-600 dark:text-slate-400 leading-snug block">
+                    <span className="text-[10px] text-slate-600 dark:text-zinc-400 leading-snug block">
                       Abre el explorador de archivos oficial de tu sistema para elegir la carpeta o memoria de almacenamiento.
                     </span>
                   </div>
@@ -417,18 +417,18 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                   <Sparkles className="w-4 h-4 text-emerald-600" />
                   <span>Instalación Automática dentro de la App</span>
                 </div>
-                <p className="text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
+                <p className="text-slate-700 dark:text-zinc-300 font-medium leading-relaxed">
                   Todo el proceso se realiza aquí: se descarga en la carpeta que elegiste de tus archivos y al presionar <strong>Instalar</strong>, tu teléfono o computadora iniciará la instalación directamente en tu pantalla sin tener que ir a buscar a la carpeta <em>Mis Archivos</em>.
                 </p>
               </div>
 
               {/* Release Notes */}
               <div className="space-y-2">
-                <div className="text-xs font-black text-slate-900 dark:text-slate-200 flex items-center gap-1.5">
+                <div className="text-xs font-black text-slate-900 dark:text-zinc-200 flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                   <span>¿Qué hay de nuevo en esta versión?</span>
                 </div>
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 text-xs text-slate-700 dark:text-slate-300 whitespace-pre-line leading-relaxed font-mono">
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/40 border border-slate-200 dark:border-zinc-700/60 text-xs text-slate-700 dark:text-zinc-300 whitespace-pre-line leading-relaxed font-mono">
                   {updateInfo.notes}
                 </div>
               </div>
@@ -452,7 +452,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                 <h3 className="text-lg font-black text-slate-900 dark:text-white">
                   Descargando {defaultFileName}
                 </h3>
-                <p className="text-xs text-slate-700 dark:text-slate-300 font-medium mt-1">
+                <p className="text-xs text-slate-700 dark:text-zinc-300 font-medium mt-1">
                   Guardando en: <strong className="text-orange-600 dark:text-orange-400">{selectedFolderName || 'Mis Archivos / Descargas'}</strong>
                 </p>
               </div>
@@ -461,18 +461,18 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs font-black">
                   <span className="text-slate-900 dark:text-white font-mono">{downloadProgress}%</span>
-                  <span className="text-slate-700 dark:text-slate-300 font-mono">
+                  <span className="text-slate-700 dark:text-zinc-300 font-mono">
                     {formatBytes(downloadedBytes)} / {formatBytes(totalBytes || fileSize)}
                   </span>
                 </div>
-                <div className="w-full h-4 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden p-0.5 border border-slate-300 dark:border-slate-700">
+                <div className="w-full h-4 rounded-full bg-slate-200 dark:bg-zinc-800 overflow-hidden p-0.5 border border-slate-300 dark:border-zinc-700">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-orange-500 via-amber-500 to-emerald-500 transition-all duration-300 ease-out shadow-sm"
                     style={{ width: `${downloadProgress}%` }}
                   />
                 </div>
                 {speedMbps > 0 && (
-                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 text-right font-mono">
+                  <div className="text-[11px] font-bold text-slate-700 dark:text-zinc-300 text-right font-mono">
                     Velocidad: ~{speedMbps} MB/s
                   </div>
                 )}
@@ -491,8 +491,8 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                 <h3 className="text-xl font-black text-slate-900 dark:text-white">
                   ¡Descarga Completada!
                 </h3>
-                <p className="text-xs text-slate-700 dark:text-slate-300 font-medium mt-1.5 max-w-sm mx-auto">
-                  El archivo <strong className="text-black dark:text-white font-black">{defaultFileName}</strong> ({formatBytes(fileSize)}) se descargó con éxito y está listo para instalarse directamente.
+                <p className="text-xs text-slate-700 dark:text-zinc-300 font-medium mt-1.5 max-w-sm mx-auto">
+                  El archivo <strong className="text-slate-800 dark:text-zinc-100 font-black">{defaultFileName}</strong> ({formatBytes(fileSize)}) se descargó con éxito y está listo para instalarse directamente.
                 </p>
               </div>
 
@@ -505,20 +505,20 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
               </div>
 
               {/* Action to save another copy in another folder in Mis Archivos */}
-              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center justify-between text-left">
+              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 flex items-center justify-between text-left">
                 <div>
                   <div className="text-xs font-black text-slate-900 dark:text-white flex items-center gap-1.5">
                     <Folder className="w-3.5 h-3.5 text-orange-500" />
                     <span>Guardar copia en otra carpeta</span>
                   </div>
-                  <span className="text-[11px] text-slate-600 dark:text-slate-400 block mt-0.5">
+                  <span className="text-[11px] text-slate-600 dark:text-zinc-400 block mt-0.5">
                     ¿Quieres respaldar una copia en otra carpeta de tus archivos o memoria externa?
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={handleSaveToAnotherFolder}
-                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-600 text-xs font-black text-slate-800 dark:text-slate-200 shrink-0 cursor-pointer transition-colors shadow-2xs"
+                  className="px-3 py-1.5 rounded-xl bg-white dark:bg-zinc-700 border border-slate-300 dark:border-zinc-600 hover:bg-slate-100 dark:hover:bg-zinc-600 text-xs font-black text-slate-800 dark:text-zinc-200 shrink-0 cursor-pointer transition-colors shadow-2xs"
                 >
                   Elegir carpeta...
                 </button>
@@ -531,7 +531,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                     <AlertCircle className="w-4 h-4 text-amber-600" />
                     <span>Permiso de Android requerido para instalar sin salir</span>
                   </div>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                  <p className="text-slate-700 dark:text-zinc-300 leading-relaxed font-medium">
                     Para que Ron's Money pueda abrir la instalación directamente en tu pantalla sin que tengas que ir a <em>Mis Archivos</em>, activa el interruptor <strong>"Permitir desde esta fuente"</strong> en los ajustes de Android.
                   </p>
                   <button
@@ -546,12 +546,12 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
               )}
 
               {/* Installation helper instructions */}
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-left text-xs space-y-2">
-                <div className="font-black text-slate-900 dark:text-slate-200 flex items-center gap-1.5">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700 text-left text-xs space-y-2">
+                <div className="font-black text-slate-900 dark:text-zinc-200 flex items-center gap-1.5">
                   <FileCheck className="w-4 h-4 text-emerald-600" />
                   <span>¿Cómo funciona la instalación directa?</span>
                 </div>
-                <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                <p className="text-slate-700 dark:text-zinc-300 leading-relaxed font-medium">
                   {isNative || platform === 'android'
                     ? 'Al presionar el botón verde abajo, se abrirá de inmediato la ventana oficial de Android "¿Quieres instalar una actualización para esta aplicación?". Solo presionas "Instalar" y la app se actualiza manteniendo todos tus datos.'
                     : isElectron || platform === 'windows'
@@ -576,7 +576,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
                 <p className="text-xs text-emerald-700 dark:text-emerald-300 font-bold mt-2 max-w-sm mx-auto">
                   {installStatusMessage || 'El instalador del sistema se ha activado directamente en la aplicación.'}
                 </p>
-                <p className="text-[11px] text-slate-700 dark:text-slate-300 mt-2">
+                <p className="text-[11px] text-slate-700 dark:text-zinc-300 mt-2">
                   Confirma <strong>"Instalar"</strong> en el mensaje del sistema para completar la actualización.
                 </p>
               </div>
@@ -602,13 +602,13 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
         </div>
 
         {/* Modal Footer Actions */}
-        <div className="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 flex items-center justify-end gap-3">
+        <div className="p-5 border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900/60 flex items-center justify-end gap-3">
           {step === 'details' && (
             <>
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-black text-slate-700 dark:text-slate-200 transition-colors cursor-pointer"
+                className="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-zinc-700 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-black text-slate-700 dark:text-zinc-200 transition-colors cursor-pointer"
               >
                 Cancelar
               </button>
@@ -627,7 +627,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-black text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
+              className="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-zinc-700 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-black text-slate-700 dark:text-zinc-300 transition-colors cursor-pointer"
             >
               Cancelar Descarga
             </button>
@@ -638,7 +638,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-black text-slate-700 dark:text-slate-300 transition-colors cursor-pointer"
+                className="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-zinc-700 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-black text-slate-700 dark:text-zinc-300 transition-colors cursor-pointer"
               >
                 Más tarde
               </button>
@@ -657,7 +657,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-black cursor-pointer"
+              className="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-zinc-800 text-slate-800 dark:text-zinc-200 text-xs font-black cursor-pointer"
             >
               Cerrar
             </button>
@@ -668,7 +668,7 @@ export const AppUpdateModal: React.FC<AppUpdateModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-black text-slate-700 dark:text-slate-300 cursor-pointer"
+                className="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-zinc-700 text-xs font-black text-slate-700 dark:text-zinc-300 cursor-pointer"
               >
                 Cerrar
               </button>

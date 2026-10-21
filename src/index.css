@@ -1,3 +1,23 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Override slate palette in dark mode to pitch black and pure neutral dark charcoal (no blue tint) */
+:root.dark,
+.dark {
+  --color-slate-950: #000000;
+  --color-slate-900: #0d0d0f;
+  --color-slate-800: #17171a;
+  --color-slate-700: #26262b;
+  --color-slate-600: #3f3f46;
+  --color-slate-500: #71717a;
+  --color-slate-400: #a1a1aa;
+  --color-slate-300: #d4d4d8;
+  --color-slate-200: #e4e4e7;
+  --color-slate-100: #f4f4f5;
+  --color-slate-50: #fafafa;
+}
+
+body {
+  @apply bg-[#f4f7f6] text-slate-800 dark:bg-black dark:text-zinc-100;
+}

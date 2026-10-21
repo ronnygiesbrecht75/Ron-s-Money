@@ -235,15 +235,15 @@ export const TransactionFormTab: React.FC = () => {
       {/* 1. Search Box by Transaction Code */}
       <div 
         id="search-by-cod-card" 
-        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xs"
+        className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-xs"
       >
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-zinc-800">
           <div>
-            <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2">
               <Search className="w-5 h-5 text-orange-500" />
               Buscar Transacción por Código
             </h3>
-            <p className="text-xs text-black dark:text-slate-300 font-medium mt-0.5">
+            <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium mt-0.5">
               Ingresa el código (ej. TRX-1001) para cargar y editar cualquier transacción
             </p>
           </div>
@@ -272,13 +272,13 @@ export const TransactionFormTab: React.FC = () => {
                 setSearchFeedback(null);
               }}
               placeholder="Buscar ej: TRX-1001, TRX-1002..."
-              className="w-full pl-4 pr-10 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-sm font-mono font-bold text-black dark:text-white placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              className="w-full pl-4 pr-10 py-3 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-2xl text-sm font-mono font-bold text-slate-800 dark:text-zinc-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
             />
             {searchCodInput && (
               <button
                 type="button"
                 onClick={() => setSearchCodInput('')}
-                className="absolute inset-y-0 right-0 pr-3 flex items-center text-black dark:text-slate-400 hover:text-black dark:hover:text-white"
+                className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-800 dark:hover:text-zinc-200"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -298,12 +298,12 @@ export const TransactionFormTab: React.FC = () => {
         {searchFeedback && (
           <div className={`mt-3 text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-2 ${
             searchFeedback.type === 'success' 
-              ? 'bg-white dark:bg-slate-800 text-black dark:text-slate-200 border border-emerald-500'
+              ? 'bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 border border-emerald-500'
               : searchFeedback.type === 'error'
               ? 'bg-white dark:bg-rose-950/50 text-rose-700 dark:text-rose-200 border border-rose-400'
-              : 'bg-white dark:bg-slate-800 text-black dark:text-slate-200 border border-slate-300'
+              : 'bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 border border-slate-300'
           }`}>
-            <AlertCircle className="w-4 h-4 shrink-0 text-black dark:text-white" />
+            <AlertCircle className="w-4 h-4 shrink-0 text-slate-500 dark:text-zinc-300" />
             <span>{searchFeedback.message}</span>
           </div>
         )}
@@ -312,24 +312,24 @@ export const TransactionFormTab: React.FC = () => {
       {/* 2. Main Transaction Form Card */}
       <div 
         id="main-transaction-form-card" 
-        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xs"
+        className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-xs"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 border-b border-slate-100 dark:border-zinc-800">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black bg-white dark:bg-slate-800 text-black dark:text-slate-200 mb-2 border border-slate-200 dark:border-slate-700 shadow-2xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-black bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 mb-2 border border-slate-200 dark:border-zinc-700 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-orange-500" />
               {editingTransactionId ? 'Modificando Registro' : 'Nuevo Registro'}
             </div>
-            <h2 className="text-xl sm:text-2xl font-black tracking-tight text-black dark:text-white">
+            <h2 className="text-xl sm:text-2xl font-black tracking-tight text-slate-800 dark:text-zinc-100">
               {editingTransactionId ? `Editar Transacción: ${customCod}` : 'Registrar Transacción'}
             </h2>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs font-black text-black dark:text-slate-300 uppercase tracking-wider">
+            <span className="text-xs font-black text-slate-600 dark:text-zinc-400 uppercase tracking-wider">
               Código:
             </span>
-            <span className="px-3 py-1.5 bg-white dark:bg-slate-800 text-black dark:text-slate-200 font-mono font-black text-sm rounded-xl border border-slate-300 dark:border-slate-700 shadow-2xs">
+            <span className="px-3 py-1.5 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 font-mono font-black text-sm rounded-xl border border-slate-300 dark:border-zinc-700 shadow-2xs">
               {customCod || 'TRX-AUTO'}
             </span>
           </div>
@@ -338,7 +338,7 @@ export const TransactionFormTab: React.FC = () => {
         <form onSubmit={handleSubmit} className="mt-6 space-y-6">
           {/* Step 1: Type Selection (Ingresos vs Gastos) */}
           <div>
-            <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-2.5">
+            <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-2.5">
               1. Tipo de Movimiento *
             </label>
             <div className="grid grid-cols-2 gap-3">
@@ -349,7 +349,7 @@ export const TransactionFormTab: React.FC = () => {
                 className={`py-3.5 px-4 rounded-2xl border-2 font-black text-sm flex items-center justify-center gap-2.5 transition-all ${
                   type === 'EXPENSE'
                     ? 'bg-rose-600 text-white border-rose-600 shadow-md shadow-rose-600/25'
-                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-black dark:text-white hover:border-slate-400'
+                    : 'bg-white dark:bg-zinc-800 border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:border-slate-400'
                 }`}
               >
                 <ArrowDownRight className="w-5 h-5" />
@@ -363,7 +363,7 @@ export const TransactionFormTab: React.FC = () => {
                 className={`py-3.5 px-4 rounded-2xl border-2 font-black text-sm flex items-center justify-center gap-2.5 transition-all ${
                   type === 'INCOME'
                     ? 'bg-emerald-600 text-white border-emerald-600 shadow-md shadow-emerald-600/25'
-                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-black dark:text-white hover:border-slate-400'
+                    : 'bg-white dark:bg-zinc-800 border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:border-slate-400'
                 }`}
               >
                 <ArrowUpRight className="w-5 h-5" />
@@ -375,7 +375,7 @@ export const TransactionFormTab: React.FC = () => {
           {/* Step 2: Choose Bank */}
           <div>
             <div className="flex items-center justify-between mb-2.5">
-              <label className="text-xs font-black text-black dark:text-white uppercase tracking-wider">
+              <label className="text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider">
                 2. Elegir 1 de los Bancos Registrados *
               </label>
               <button
@@ -399,8 +399,8 @@ export const TransactionFormTab: React.FC = () => {
                     onClick={() => setSelectedBankId(b.id)}
                     className={`p-3.5 rounded-2xl border-2 text-left transition-all relative ${
                       isSelected
-                        ? 'border-orange-500 bg-white dark:bg-slate-800 shadow-md ring-1 ring-orange-500'
-                        : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 hover:border-slate-300'
+                        ? 'border-orange-500 bg-white dark:bg-zinc-800 shadow-md ring-1 ring-orange-500'
+                        : 'border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800/60 hover:border-slate-300'
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -409,19 +409,19 @@ export const TransactionFormTab: React.FC = () => {
                           className="w-3 h-3 rounded-full" 
                           style={{ backgroundColor: b.color }} 
                         />
-                        <span className="font-black text-xs text-black dark:text-white truncate">
+                        <span className="font-black text-xs text-slate-800 dark:text-zinc-100 truncate">
                           {b.name}
                         </span>
                       </div>
-                      <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-white text-black dark:bg-slate-700 dark:text-white border border-slate-200 dark:border-slate-600">
+                      <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-white text-slate-700 dark:bg-zinc-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-600">
                         {b.currency}
                       </span>
                     </div>
 
-                    <div className="mt-2 text-xs font-bold text-black dark:text-slate-300">
+                    <div className="mt-2 text-xs font-bold text-slate-600 dark:text-zinc-400">
                       Saldo disponible:
                     </div>
-                    <div className="text-sm font-black font-mono text-black dark:text-white">
+                    <div className="text-sm font-black font-mono text-slate-800 dark:text-zinc-100">
                       {formatCurrency(calcBalance, b.currency)}
                     </div>
 
@@ -439,7 +439,7 @@ export const TransactionFormTab: React.FC = () => {
           {/* Step 3: Category Picker */}
           <div>
             <div className="flex items-center justify-between mb-2.5">
-              <label className="text-xs font-black text-black dark:text-white uppercase tracking-wider">
+              <label className="text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider">
                 3. Categoría * ({type === 'EXPENSE' ? 'Gastos' : 'Ingresos'})
               </label>
               <button
@@ -463,7 +463,7 @@ export const TransactionFormTab: React.FC = () => {
                     className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-black text-left transition-all ${
                       isSelected
                         ? 'border-orange-500 bg-orange-500 text-white shadow-xs'
-                        : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 text-black dark:text-white hover:border-slate-300'
+                        : 'border-slate-200 dark:border-zinc-700 bg-white dark:bg-zinc-800/80 text-slate-700 dark:text-zinc-200 hover:border-slate-300'
                     }`}
                   >
                     <div 
@@ -472,7 +472,7 @@ export const TransactionFormTab: React.FC = () => {
                     >
                       <CategoryIcon name={cat.iconName} size={16} />
                     </div>
-                    <span className="truncate text-black dark:text-white">{cat.name}</span>
+                    <span className="truncate text-slate-800 dark:text-zinc-100">{cat.name}</span>
                   </button>
                 );
               })}
@@ -483,11 +483,11 @@ export const TransactionFormTab: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Amount / Suma */}
             <div className="md:col-span-1">
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-2">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-2">
                 4. Suma / Monto ({currentCurrency}) *
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none font-black text-black dark:text-slate-400">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none font-black text-slate-400">
                   {currentCurrency === 'PYG' ? '₲' : '$'}
                 </div>
                 <input
@@ -497,7 +497,7 @@ export const TransactionFormTab: React.FC = () => {
                   value={amountStr}
                   onChange={(e) => setAmountStr(e.target.value)}
                   placeholder={currentCurrency === 'PYG' ? 'Ej: 350000' : 'Ej: 150.00'}
-                  className="w-full pl-9 pr-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-lg font-black font-mono text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full pl-9 pr-4 py-3 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-2xl text-lg font-black font-mono text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                   required
                 />
               </div>
@@ -505,11 +505,11 @@ export const TransactionFormTab: React.FC = () => {
 
             {/* Date */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-2">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-2">
                 Fecha *
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-black dark:text-slate-400">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                   <Calendar className="w-4 h-4" />
                 </div>
                 <input
@@ -517,7 +517,7 @@ export const TransactionFormTab: React.FC = () => {
                   type="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-black text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-full pl-10 pr-4 py-3 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-2xl text-xs font-black text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                   required
                 />
               </div>
@@ -525,11 +525,11 @@ export const TransactionFormTab: React.FC = () => {
 
             {/* Time */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-2">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-2">
                 Hora (Opcional)
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-black dark:text-slate-400">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                   <Clock className="w-4 h-4" />
                 </div>
                 <input
@@ -537,7 +537,7 @@ export const TransactionFormTab: React.FC = () => {
                   type="time"
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-black text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-full pl-10 pr-4 py-3 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-2xl text-xs font-black text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 />
               </div>
             </div>
@@ -545,11 +545,11 @@ export const TransactionFormTab: React.FC = () => {
 
           {/* Step 5: Note (Opcional) */}
           <div>
-            <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-2">
+            <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-2">
               5. Nota / Concepto (Opcional)
             </label>
             <div className="relative">
-              <div className="absolute top-3.5 left-3.5 text-black dark:text-slate-400">
+              <div className="absolute top-3.5 left-3.5 text-slate-400">
                 <FileText className="w-4 h-4" />
               </div>
               <textarea
@@ -558,19 +558,19 @@ export const TransactionFormTab: React.FC = () => {
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="Detalle o descripción de la transacción (ej: Pago de combustible, compra de generador...)"
-                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-bold text-black dark:text-white placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-2xl text-xs font-bold text-slate-800 dark:text-zinc-100 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
               />
             </div>
           </div>
 
           {/* Orange Submit Button */}
-          <div className="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-slate-100 dark:border-zinc-800">
             {editingTransactionId && (
               <button
                 id="btn-cancel-edit-form"
                 type="button"
                 onClick={handleClearEditing}
-                className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-black dark:text-white font-black text-xs hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 font-black text-xs hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
               >
                 Cancelar Edición
               </button>

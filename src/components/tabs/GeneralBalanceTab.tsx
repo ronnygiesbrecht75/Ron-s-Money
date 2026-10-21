@@ -182,14 +182,14 @@ export const GeneralBalanceTab: React.FC = () => {
       {/* Header and Controls */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-white dark:bg-slate-800 text-black dark:text-slate-200 border border-slate-200 dark:border-slate-700 shadow-2xs">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-700 shadow-2xs">
             <PieChart className="w-3.5 h-3.5 text-orange-500" />
             Análisis Financiero
           </div>
-          <h2 className="text-2xl font-black tracking-tight text-black dark:text-white mt-1">
+          <h2 className="text-2xl font-black tracking-tight text-slate-800 dark:text-zinc-100 mt-1">
             Balance General
           </h2>
-          <p className="text-xs text-black dark:text-slate-300 font-medium">
+          <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
             {periodLabel}
           </p>
         </div>
@@ -208,13 +208,13 @@ export const GeneralBalanceTab: React.FC = () => {
       </div>
 
       {/* FILTER PANEL */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xs space-y-4">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-xs space-y-4">
         {/* Row 1: Type Selection (Ingresos y Gastos / Ingreso / Gastos) */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
-          <div className="text-xs font-black text-black dark:text-white uppercase tracking-wider">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-zinc-800">
+          <div className="text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider">
             1. Movimientos a Incluir:
           </div>
-          <div className="inline-flex p-1 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
+          <div className="inline-flex p-1 bg-white dark:bg-zinc-800 rounded-2xl border border-slate-200 dark:border-zinc-700">
             <button
               type="button"
               id="btn-filter-type-all"
@@ -222,7 +222,7 @@ export const GeneralBalanceTab: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
                 typeFilter === 'all'
                   ? 'bg-orange-500 text-white shadow-xs'
-                  : 'text-black dark:text-slate-300'
+                  : 'text-slate-600 dark:text-zinc-400'
               }`}
             >
               Ingresos y Gastos
@@ -234,7 +234,7 @@ export const GeneralBalanceTab: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1 ${
                 typeFilter === 'income'
                   ? 'bg-emerald-600 text-white shadow-xs'
-                  : 'text-black dark:text-slate-300'
+                  : 'text-slate-600 dark:text-zinc-400'
               }`}
             >
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -247,7 +247,7 @@ export const GeneralBalanceTab: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1 ${
                 typeFilter === 'expense'
                   ? 'bg-rose-600 text-white shadow-xs'
-                  : 'text-black dark:text-slate-300'
+                  : 'text-slate-600 dark:text-zinc-400'
               }`}
             >
               <ArrowDownRight className="w-3.5 h-3.5" />
@@ -260,16 +260,16 @@ export const GeneralBalanceTab: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
           {/* Period selector */}
           <div className="md:col-span-4">
-            <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
               2. Período de Tiempo:
             </label>
-            <div className="grid grid-cols-4 gap-1.5 bg-white dark:bg-slate-800 p-1 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div className="grid grid-cols-4 gap-1.5 bg-white dark:bg-zinc-800 p-1 rounded-2xl border border-slate-200 dark:border-zinc-700">
               <button
                 type="button"
                 id="btn-period-day"
                 onClick={() => setPeriod('day')}
                 className={`py-1.5 text-xs font-black rounded-xl transition-all ${
-                  period === 'day' ? 'bg-orange-500 text-white shadow-xs' : 'text-black dark:text-slate-300'
+                  period === 'day' ? 'bg-orange-500 text-white shadow-xs' : 'text-slate-600 dark:text-zinc-400'
                 }`}
               >
                 Día
@@ -279,7 +279,7 @@ export const GeneralBalanceTab: React.FC = () => {
                 id="btn-period-week"
                 onClick={() => setPeriod('week')}
                 className={`py-1.5 text-xs font-black rounded-xl transition-all ${
-                  period === 'week' ? 'bg-orange-500 text-white shadow-xs' : 'text-black dark:text-slate-300'
+                  period === 'week' ? 'bg-orange-500 text-white shadow-xs' : 'text-slate-600 dark:text-zinc-400'
                 }`}
               >
                 Semana
@@ -289,7 +289,7 @@ export const GeneralBalanceTab: React.FC = () => {
                 id="btn-period-month"
                 onClick={() => setPeriod('month')}
                 className={`py-1.5 text-xs font-black rounded-xl transition-all ${
-                  period === 'month' ? 'bg-orange-500 text-white shadow-xs' : 'text-black dark:text-slate-300'
+                  period === 'month' ? 'bg-orange-500 text-white shadow-xs' : 'text-slate-600 dark:text-zinc-400'
                 }`}
               >
                 Mes
@@ -299,7 +299,7 @@ export const GeneralBalanceTab: React.FC = () => {
                 id="btn-period-year"
                 onClick={() => setPeriod('year')}
                 className={`py-1.5 text-xs font-black rounded-xl transition-all ${
-                  period === 'year' ? 'bg-orange-500 text-white shadow-xs' : 'text-black dark:text-slate-300'
+                  period === 'year' ? 'bg-orange-500 text-white shadow-xs' : 'text-slate-600 dark:text-zinc-400'
                 }`}
               >
                 Año
@@ -309,7 +309,7 @@ export const GeneralBalanceTab: React.FC = () => {
 
           {/* Specific period date controller */}
           <div className="md:col-span-5">
-            <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
               Selector ({period === 'day' ? 'Día específico' : period === 'week' ? 'Semana (Lun-Dom)' : period === 'month' ? 'Mes y Año' : 'Año'})
             </label>
 
@@ -319,7 +319,7 @@ export const GeneralBalanceTab: React.FC = () => {
                 type="date"
                 value={selectedDay}
                 onChange={(e) => setSelectedDay(e.target.value)}
-                className="w-full px-3.5 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                className="w-full px-3.5 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
               />
             )}
 
@@ -330,7 +330,7 @@ export const GeneralBalanceTab: React.FC = () => {
                   type="date"
                   value={selectedWeekDate}
                   onChange={(e) => setSelectedWeekDate(e.target.value)}
-                  className="w-full px-3.5 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-3.5 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 />
               </div>
             )}
@@ -341,7 +341,7 @@ export const GeneralBalanceTab: React.FC = () => {
                   id="select-balance-month"
                   value={selectedMonth}
                   onChange={(e) => setSelectedMonth(Number(e.target.value))}
-                  className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 >
                   {MONTH_NAMES_SPANISH.map((m, idx) => (
                     <option key={m} value={idx}>{m}</option>
@@ -351,7 +351,7 @@ export const GeneralBalanceTab: React.FC = () => {
                   id="select-balance-month-year"
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(Number(e.target.value))}
-                  className="w-32 px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-32 px-3 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                 >
                   {[2024, 2025, 2026, 2027, 2028].map(y => (
                     <option key={y} value={y}>{y}</option>
@@ -365,7 +365,7 @@ export const GeneralBalanceTab: React.FC = () => {
                 id="select-balance-year"
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(Number(e.target.value))}
-                className="w-full px-3.5 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                className="w-full px-3.5 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
               >
                 {[2024, 2025, 2026, 2027, 2028].map(y => (
                   <option key={y} value={y}>{y}</option>
@@ -376,14 +376,14 @@ export const GeneralBalanceTab: React.FC = () => {
 
           {/* Category Filter */}
           <div className="md:col-span-3">
-            <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
               3. Filtrar Categoría:
             </label>
             <select
               id="select-balance-category"
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full px-3.5 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+              className="w-full px-3.5 py-2 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
             >
               <option value="all">Todas las Categorías</option>
               {categories.map(c => (
@@ -399,19 +399,19 @@ export const GeneralBalanceTab: React.FC = () => {
       {/* SUMMARY STATS TILES */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* PYG Summary Card */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-            <span className="text-xs font-black text-black dark:text-white uppercase tracking-wider">
+        <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800">
+            <span className="text-xs font-black text-slate-800 dark:text-zinc-100 uppercase tracking-wider">
               Balance en Guaraníes (PYG)
             </span>
-            <span className="text-xs font-mono font-black bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full text-black dark:text-slate-200 border border-slate-300 dark:border-slate-700 shadow-2xs">
+            <span className="text-xs font-mono font-black bg-white dark:bg-zinc-800 px-2.5 py-1 rounded-full text-slate-700 dark:text-zinc-200 border border-slate-300 dark:border-zinc-700 shadow-2xs">
               ₲ PYG
             </span>
           </div>
 
           <div className="grid grid-cols-3 gap-3 mt-4">
             <div>
-              <div className="text-xs font-black text-black dark:text-slate-300 flex items-center gap-1">
+              <div className="text-xs font-black text-slate-600 dark:text-zinc-400 flex items-center gap-1">
                 <ArrowUpRight className="w-3.5 h-3.5 text-emerald-600" />
                 Ingresos
               </div>
@@ -421,7 +421,7 @@ export const GeneralBalanceTab: React.FC = () => {
             </div>
 
             <div>
-              <div className="text-xs font-black text-black dark:text-slate-300 flex items-center gap-1">
+              <div className="text-xs font-black text-slate-600 dark:text-zinc-400 flex items-center gap-1">
                 <ArrowDownRight className="w-3.5 h-3.5 text-rose-600" />
                 Gastos
               </div>
@@ -431,7 +431,7 @@ export const GeneralBalanceTab: React.FC = () => {
             </div>
 
             <div>
-              <div className="text-xs font-black text-black dark:text-slate-300">
+              <div className="text-xs font-black text-slate-600 dark:text-zinc-400">
                 Balance Neto
               </div>
               <div className={`text-sm sm:text-base font-black font-mono mt-0.5 ${
@@ -444,19 +444,19 @@ export const GeneralBalanceTab: React.FC = () => {
         </div>
 
         {/* USD Summary Card */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-            <span className="text-xs font-black text-black dark:text-white uppercase tracking-wider">
+        <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800">
+            <span className="text-xs font-black text-slate-800 dark:text-zinc-100 uppercase tracking-wider">
               Balance en Dólares (USD)
             </span>
-            <span className="text-xs font-mono font-black bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full text-black dark:text-slate-200 border border-slate-300 dark:border-slate-700 shadow-2xs">
+            <span className="text-xs font-mono font-black bg-white dark:bg-zinc-800 px-2.5 py-1 rounded-full text-slate-700 dark:text-zinc-200 border border-slate-300 dark:border-zinc-700 shadow-2xs">
               $ USD
             </span>
           </div>
 
           <div className="grid grid-cols-3 gap-3 mt-4">
             <div>
-              <div className="text-xs font-black text-black dark:text-slate-300 flex items-center gap-1">
+              <div className="text-xs font-black text-slate-600 dark:text-zinc-400 flex items-center gap-1">
                 <ArrowUpRight className="w-3.5 h-3.5 text-emerald-600" />
                 Ingresos
               </div>
@@ -466,7 +466,7 @@ export const GeneralBalanceTab: React.FC = () => {
             </div>
 
             <div>
-              <div className="text-xs font-black text-black dark:text-slate-300 flex items-center gap-1">
+              <div className="text-xs font-black text-slate-600 dark:text-zinc-400 flex items-center gap-1">
                 <ArrowDownRight className="w-3.5 h-3.5 text-rose-600" />
                 Gastos
               </div>
@@ -476,7 +476,7 @@ export const GeneralBalanceTab: React.FC = () => {
             </div>
 
             <div>
-              <div className="text-xs font-black text-black dark:text-slate-300">
+              <div className="text-xs font-black text-slate-600 dark:text-zinc-400">
                 Balance Neto
               </div>
               <div className={`text-sm sm:text-base font-black font-mono mt-0.5 ${
@@ -492,13 +492,13 @@ export const GeneralBalanceTab: React.FC = () => {
       {/* DIAGRAMS & CATEGORY BREAKDOWN */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Visual Bar Diagram */}
-        <div className="lg:col-span-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+        <div className="lg:col-span-7 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-zinc-800">
             <div>
-              <h3 className="text-base font-black text-black dark:text-white">
+              <h3 className="text-base font-black text-slate-800 dark:text-zinc-100">
                 Diagrama Comparativo de Flujo
               </h3>
-              <p className="text-xs text-black dark:text-slate-300 font-medium">
+              <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
                 Proporción de Ingresos vs. Gastos en el período
               </p>
             </div>
@@ -507,16 +507,16 @@ export const GeneralBalanceTab: React.FC = () => {
           <div className="mt-6 space-y-6">
             {/* PYG Comparison Bar */}
             <div>
-              <div className="flex items-center justify-between text-xs font-black mb-2 text-black dark:text-white">
+              <div className="flex items-center justify-between text-xs font-black mb-2 text-slate-800 dark:text-zinc-100">
                 <span>Flujo Guaraníes (₲)</span>
-                <span className="font-mono text-black dark:text-slate-300">
+                <span className="font-mono text-slate-600 dark:text-zinc-400">
                   {metricsPyg.income + metricsPyg.expense > 0 
                     ? `${Math.round((metricsPyg.expense / (metricsPyg.income + metricsPyg.expense || 1)) * 100)}% Gastos`
                     : 'Sin movimientos'}
                 </span>
               </div>
               
-              <div className="h-6 w-full bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden flex shadow-inner">
+              <div className="h-6 w-full bg-slate-100 dark:bg-zinc-800 rounded-xl overflow-hidden flex shadow-inner">
                 {metricsPyg.income + metricsPyg.expense > 0 ? (
                   <>
                     <div 
@@ -542,16 +542,16 @@ export const GeneralBalanceTab: React.FC = () => {
 
             {/* USD Comparison Bar */}
             <div>
-              <div className="flex items-center justify-between text-xs font-black mb-2 text-black dark:text-white">
+              <div className="flex items-center justify-between text-xs font-black mb-2 text-slate-800 dark:text-zinc-100">
                 <span>Flujo Dólares ($ USD)</span>
-                <span className="font-mono text-black dark:text-slate-300">
+                <span className="font-mono text-slate-600 dark:text-zinc-400">
                   {metricsUsd.income + metricsUsd.expense > 0 
                     ? `${Math.round((metricsUsd.expense / (metricsUsd.income + metricsUsd.expense || 1)) * 100)}% Gastos`
                     : 'Sin movimientos'}
                 </span>
               </div>
               
-              <div className="h-6 w-full bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden flex shadow-inner">
+              <div className="h-6 w-full bg-slate-100 dark:bg-zinc-800 rounded-xl overflow-hidden flex shadow-inner">
                 {metricsUsd.income + metricsUsd.expense > 0 ? (
                   <>
                     <div 
@@ -576,8 +576,8 @@ export const GeneralBalanceTab: React.FC = () => {
             </div>
 
             {/* Quick summary notes */}
-            <div className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs space-y-2 text-black dark:text-white font-bold">
-              <div className="font-black text-black dark:text-white">
+            <div className="p-4 rounded-2xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 text-xs space-y-2 text-slate-700 dark:text-zinc-200 font-bold">
+              <div className="font-black text-slate-800 dark:text-zinc-100">
                 Resumen de Actividad:
               </div>
               <p>
@@ -588,12 +588,12 @@ export const GeneralBalanceTab: React.FC = () => {
         </div>
 
         {/* Category Breakdown list */}
-        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
-            <h3 className="text-base font-black text-black dark:text-white">
+        <div className="lg:col-span-5 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-zinc-800">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100">
               Desglose por Categoría
             </h3>
-            <span className="text-xs font-bold text-black dark:text-slate-300">
+            <span className="text-xs font-bold text-slate-600 dark:text-zinc-400">
               {categoryBreakdown.length} categorías
             </span>
           </div>
@@ -608,7 +608,7 @@ export const GeneralBalanceTab: React.FC = () => {
                 return (
                   <div
                     key={category.id}
-                    className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-between shadow-2xs"
+                    className="p-3 rounded-2xl bg-white dark:bg-zinc-800 border border-slate-200 dark:border-zinc-700 flex items-center justify-between shadow-2xs"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <div
@@ -618,10 +618,10 @@ export const GeneralBalanceTab: React.FC = () => {
                         <CategoryIcon name={category.iconName} size={16} />
                       </div>
                       <div className="min-w-0">
-                        <div className="text-xs font-black text-black dark:text-white truncate">
+                        <div className="text-xs font-black text-slate-800 dark:text-zinc-100 truncate">
                           {category.name}
                         </div>
-                        <div className="text-[10px] text-black dark:text-slate-300 font-bold">
+                        <div className="text-[10px] text-slate-600 dark:text-zinc-400 font-bold">
                           {category.type === 'INCOME' ? 'Ingreso' : 'Egreso'}
                         </div>
                       </div>
@@ -648,24 +648,24 @@ export const GeneralBalanceTab: React.FC = () => {
       </div>
 
       {/* DETAILED TRANSACTIONS TABLE OF THE PERIOD */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-xs">
-        <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-xs">
+        <div className="p-5 border-b border-slate-100 dark:border-zinc-800 flex items-center justify-between">
           <div>
-            <h3 className="text-base font-black text-black dark:text-white">
+            <h3 className="text-base font-black text-slate-800 dark:text-zinc-100">
               Detalle de Transacciones del Período
             </h3>
-            <p className="text-xs text-black dark:text-slate-300 font-medium">
+            <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
               Registros ordenados cronológicamente
             </p>
           </div>
-          <span className="text-xs font-black px-3 py-1 bg-white dark:bg-slate-800 text-black dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl shadow-2xs">
+          <span className="text-xs font-black px-3 py-1 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 border border-slate-300 dark:border-zinc-700 rounded-xl shadow-2xs">
             {filteredTransactions.length} registros
           </span>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-slate-800 dark:text-slate-200">
-            <thead className="bg-white dark:bg-slate-800 text-black dark:text-white font-black uppercase tracking-wider text-[11px] border-b border-slate-200 dark:border-slate-700">
+          <table className="w-full text-left text-xs text-slate-800 dark:text-zinc-200">
+            <thead className="bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 font-black uppercase tracking-wider text-[11px] border-b border-slate-200 dark:border-zinc-700">
               <tr>
                 <th className="px-5 py-3.5">Código</th>
                 <th className="px-5 py-3.5">Fecha</th>
@@ -676,10 +676,10 @@ export const GeneralBalanceTab: React.FC = () => {
                 <th className="px-5 py-3.5 text-right">Monto</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
+            <tbody className="divide-y divide-slate-100 dark:divide-zinc-800 font-medium">
               {filteredTransactions.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-5 py-8 text-center text-black dark:text-slate-400 font-bold">
+                  <td colSpan={7} className="px-5 py-8 text-center text-slate-500 dark:text-zinc-400 font-bold">
                     No hay transacciones registradas para este filtro.
                   </td>
                 </tr>
@@ -690,11 +690,11 @@ export const GeneralBalanceTab: React.FC = () => {
                   const isInc = tx.type === 'INCOME';
 
                   return (
-                    <tr key={tx.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                      <td className="px-5 py-3.5 font-mono font-black text-black dark:text-white">
+                    <tr key={tx.id} className="hover:bg-slate-50 dark:hover:bg-zinc-800/50">
+                      <td className="px-5 py-3.5 font-mono font-black text-slate-800 dark:text-zinc-100">
                         {tx.cod}
                       </td>
-                      <td className="px-5 py-3.5 whitespace-nowrap text-black dark:text-slate-300 font-bold">
+                      <td className="px-5 py-3.5 whitespace-nowrap text-slate-600 dark:text-zinc-300 font-bold">
                         {formatDateSpanish(tx.date)}
                       </td>
                       <td className="px-5 py-3.5">
@@ -706,13 +706,13 @@ export const GeneralBalanceTab: React.FC = () => {
                           {isInc ? 'Ingreso' : 'Gasto'}
                         </span>
                       </td>
-                      <td className="px-5 py-3.5 font-black text-black dark:text-white">
+                      <td className="px-5 py-3.5 font-black text-slate-800 dark:text-zinc-100">
                         {cat?.name || 'General'}
                       </td>
-                      <td className="px-5 py-3.5 text-black dark:text-white font-bold">
+                      <td className="px-5 py-3.5 text-slate-700 dark:text-zinc-200 font-bold">
                         {bank?.name || 'Banco'}
                       </td>
-                      <td className="px-5 py-3.5 max-w-xs truncate text-black dark:text-slate-300 font-medium">
+                      <td className="px-5 py-3.5 max-w-xs truncate text-slate-600 dark:text-zinc-400 font-medium">
                         {tx.note || '-'}
                       </td>
                       <td className={`px-5 py-3.5 text-right font-mono font-black ${

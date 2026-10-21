@@ -106,10 +106,10 @@ export const SettingsTab: React.FC = () => {
           <Settings className="w-3.5 h-3.5" />
           Configuración del Sistema
         </div>
-        <h2 className="text-2xl font-black tracking-tight text-black dark:text-white mt-1">
+        <h2 className="text-2xl font-black tracking-tight text-slate-800 dark:text-zinc-100 mt-1">
           Ajustes de Ron´s Money
         </h2>
-        <p className="text-xs text-slate-700 dark:text-slate-300 font-medium">
+        <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
           Tema visual (Verde & Blanco), credenciales de seguridad, huella dactilar, actualizaciones y respaldos.
         </p>
       </div>
@@ -129,17 +129,17 @@ export const SettingsTab: React.FC = () => {
       )}
 
       {/* 1. SECCIÓN: TEMA DE COLORES DEL SISTEMA */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 gap-2">
-          <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 dark:border-zinc-800 gap-2">
+          <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2">
             <Sun className="w-5 h-5 text-orange-500" />
             Modo de Color del Sistema
           </h3>
-          <span className="text-xs font-black px-3 py-1 bg-white dark:bg-slate-800 text-black dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-full shadow-2xs">
+          <span className="text-xs font-black px-3 py-1 bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-700 rounded-full shadow-2xs">
             Seleccionado: {settings.themeMode === 'light' ? 'Modo claro' : settings.themeMode === 'dark' ? 'Modo noche' : 'Modo del dispositivo'}
           </span>
         </div>
-        <p className="text-xs text-black dark:text-slate-300 font-medium mt-2">
+        <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium mt-2">
           Selecciona una sola opción de visualización para la aplicación:
         </p>
 
@@ -151,8 +151,8 @@ export const SettingsTab: React.FC = () => {
             onClick={() => handleThemeChange('light')}
             className={`p-4 rounded-2xl border text-left transition-all relative ${
               settings.themeMode === 'light'
-                ? 'border-orange-500 bg-white dark:bg-slate-800 shadow-md ring-2 ring-orange-500/20'
-                : 'border-slate-200 bg-white dark:bg-slate-800/40 hover:border-slate-300'
+                ? 'border-orange-500 bg-white dark:bg-zinc-800 shadow-md ring-2 ring-orange-500/20'
+                : 'border-slate-200 bg-white dark:bg-zinc-800/40 hover:border-slate-300'
             }`}
           >
             <div className="flex items-center gap-3">
@@ -160,10 +160,10 @@ export const SettingsTab: React.FC = () => {
                 <Sun className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-sm font-black text-black dark:text-white">
+                <div className="text-sm font-black text-slate-800 dark:text-zinc-100">
                   Modo claro
                 </div>
-                <div className="text-[11px] text-black dark:text-slate-300 font-medium truncate">
+                <div className="text-[11px] text-slate-600 dark:text-zinc-400 font-medium truncate">
                   Fondo blanco y texto negro
                 </div>
               </div>
@@ -182,19 +182,19 @@ export const SettingsTab: React.FC = () => {
             onClick={() => handleThemeChange('dark')}
             className={`p-4 rounded-2xl border text-left transition-all relative ${
               settings.themeMode === 'dark'
-                ? 'border-orange-500 bg-white dark:bg-slate-800 shadow-md ring-2 ring-orange-500/20'
-                : 'border-slate-200 bg-white dark:bg-slate-800/40 hover:border-slate-300'
+                ? 'border-orange-500 bg-white dark:bg-zinc-800 shadow-md ring-2 ring-orange-500/20'
+                : 'border-slate-200 bg-white dark:bg-zinc-800/40 hover:border-slate-300'
             }`}
           >
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-white dark:bg-slate-800 text-black dark:text-slate-200 shadow-2xs border border-slate-200 dark:border-slate-700 shrink-0">
+              <div className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 shadow-2xs border border-slate-200 dark:border-zinc-700 shrink-0">
                 <Moon className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-sm font-black text-black dark:text-white">
+                <div className="text-sm font-black text-slate-800 dark:text-zinc-100">
                   Modo noche
                 </div>
-                <div className="text-[11px] text-black dark:text-slate-300 font-medium truncate">
+                <div className="text-[11px] text-slate-600 dark:text-zinc-400 font-medium truncate">
                   Fondo oscuro
                 </div>
               </div>
@@ -213,19 +213,19 @@ export const SettingsTab: React.FC = () => {
             onClick={() => handleThemeChange('system')}
             className={`p-4 rounded-2xl border text-left transition-all relative ${
               settings.themeMode === 'system'
-                ? 'border-orange-500 bg-white dark:bg-slate-800 shadow-md ring-2 ring-orange-500/20'
-                : 'border-slate-200 bg-white dark:bg-slate-800/40 hover:border-slate-300'
+                ? 'border-orange-500 bg-white dark:bg-zinc-800 shadow-md ring-2 ring-orange-500/20'
+                : 'border-slate-200 bg-white dark:bg-zinc-800/40 hover:border-slate-300'
             }`}
           >
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-white dark:bg-slate-800 text-black dark:text-slate-200 shadow-2xs border border-slate-200 shrink-0">
+              <div className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 text-slate-700 dark:text-zinc-200 shadow-2xs border border-slate-200 shrink-0">
                 <Monitor className="w-5 h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-sm font-black text-black dark:text-white">
+                <div className="text-sm font-black text-slate-800 dark:text-zinc-100">
                   Modo del dispositivo
                 </div>
-                <div className="text-[11px] text-black dark:text-slate-300 font-medium truncate">
+                <div className="text-[11px] text-slate-600 dark:text-zinc-400 font-medium truncate">
                   Automático según tu dispositivo
                 </div>
               </div>
@@ -240,8 +240,8 @@ export const SettingsTab: React.FC = () => {
       </div>
 
       {/* 2. SECCIÓN: SEGURIDAD, USUARIO, CONTRASEÑA Y HUELLA DACTILAR */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-        <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+        <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-zinc-800">
           <ShieldCheck className="w-5 h-5 text-orange-500" />
           Seguridad & Acceso
         </h3>
@@ -250,17 +250,17 @@ export const SettingsTab: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Usuario */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Nombre de Usuario *
               </label>
               <div className="relative">
-                <User className="w-4 h-4 text-black dark:text-slate-400 absolute left-3.5 top-3" />
+                <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
                 <input
                   id="input-settings-username"
                   type="text"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-bold text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                   required
                 />
               </div>
@@ -268,11 +268,11 @@ export const SettingsTab: React.FC = () => {
 
             {/* Contraseña / PIN */}
             <div>
-              <label className="block text-xs font-black text-black dark:text-white uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-black text-slate-700 dark:text-zinc-200 uppercase tracking-wider mb-1.5">
                 Contraseña / PIN (Mínimo 4 Dígitos) *
               </label>
               <div className="relative">
-                <KeyRound className="w-4 h-4 text-black dark:text-slate-400 absolute left-3.5 top-3" />
+                <KeyRound className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
                 <input
                   id="input-settings-pin"
                   type={showPin ? 'text' : 'password'}
@@ -281,13 +281,13 @@ export const SettingsTab: React.FC = () => {
                   value={pin}
                   onChange={(e) => setPin(e.target.value)}
                   placeholder="Mínimo 4 dígitos"
-                  className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-mono font-black text-black dark:text-white focus:outline-hidden focus:ring-2 focus:ring-orange-500"
+                  className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-zinc-800 border border-slate-300 dark:border-zinc-700 rounded-xl text-xs font-mono font-black text-slate-800 dark:text-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-orange-500"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPin(!showPin)}
-                  className="absolute right-3 top-3 text-slate-400 hover:text-black dark:hover:text-white"
+                  className="absolute right-3 top-3 text-slate-400 hover:text-slate-800 dark:hover:text-zinc-200"
                 >
                   {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -296,16 +296,16 @@ export const SettingsTab: React.FC = () => {
           </div>
 
           {/* Toggle Huella Dactilar */}
-          <div className="p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-between shadow-2xs">
+          <div className="p-4 rounded-2xl bg-white dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700 flex items-center justify-between shadow-2xs">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-700 text-black dark:text-slate-200 border border-slate-200 dark:border-slate-600">
+              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-600">
                 <Fingerprint className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-sm font-black text-black dark:text-white">
+                <div className="text-sm font-black text-slate-800 dark:text-zinc-100">
                   Activar Huella Dactilar (Biometría)
                 </div>
-                <div className="text-xs text-black dark:text-slate-300 font-medium">
+                <div className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
                   Permite iniciar sesión rápido con el sensor de huella en móviles y computadoras.
                 </div>
               </div>
@@ -318,21 +318,21 @@ export const SettingsTab: React.FC = () => {
                 onChange={(e) => setBiometricEnabled(e.target.checked)}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-slate-300 dark:bg-slate-600 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
+              <div className="w-11 h-6 bg-slate-300 dark:bg-zinc-600 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
             </label>
           </div>
 
           {/* Toggle Require PIN on App Open */}
-          <div className="p-4 rounded-2xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-between shadow-2xs">
+          <div className="p-4 rounded-2xl bg-white dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700 flex items-center justify-between shadow-2xs">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-700 text-black dark:text-slate-200 border border-slate-200 dark:border-slate-600">
+              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-zinc-700 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-zinc-600">
                 <Lock className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-sm font-black text-black dark:text-white">
+                <div className="text-sm font-black text-slate-800 dark:text-zinc-100">
                   Bloqueo Automático al Iniciar App
                 </div>
-                <div className="text-xs text-black dark:text-slate-300 font-medium">
+                <div className="text-xs text-slate-600 dark:text-zinc-400 font-medium">
                   Solicita siempre PIN o huella cada vez que se abra la aplicación.
                 </div>
               </div>
@@ -345,7 +345,7 @@ export const SettingsTab: React.FC = () => {
                 onChange={(e) => setRequireAuthOnLoad(e.target.checked)}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-slate-300 dark:bg-slate-600 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
+              <div className="w-11 h-6 bg-slate-300 dark:bg-zinc-600 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
             </label>
           </div>
 
@@ -382,12 +382,12 @@ export const SettingsTab: React.FC = () => {
       <GoogleDriveBackupSection />
 
       {/* 6. SECCIÓN: COPIA LOCAL & RESTABLECER */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs">
-        <h3 className="text-base font-black text-black dark:text-white flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 shadow-xs">
+        <h3 className="text-base font-black text-slate-800 dark:text-zinc-100 flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-zinc-800">
           <Download className="w-5 h-5 text-orange-500" />
           Copia Local & Archivos JSON
         </h3>
-        <p className="text-xs text-black dark:text-slate-300 font-medium mt-2">
+        <p className="text-xs text-slate-600 dark:text-zinc-400 font-medium mt-2">
           Exporta o importa un archivo JSON directamente desde y hacia tu dispositivo sin requerir internet.
         </p>
 
@@ -396,13 +396,13 @@ export const SettingsTab: React.FC = () => {
             type="button"
             id="btn-export-backup-json"
             onClick={exportDataJson}
-            className="p-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 font-black text-xs text-black dark:text-white flex items-center justify-center gap-2 transition-all shadow-2xs cursor-pointer"
+            className="p-3.5 rounded-2xl border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-700 font-black text-xs text-slate-700 dark:text-zinc-200 flex items-center justify-center gap-2 transition-all shadow-2xs cursor-pointer"
           >
             <Download className="w-4 h-4 text-orange-500" />
             <span>Descargar Archivo JSON</span>
           </button>
 
-          <label className="p-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 font-black text-xs text-black dark:text-white flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs">
+          <label className="p-3.5 rounded-2xl border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-700 font-black text-xs text-slate-700 dark:text-zinc-200 flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs">
             <Upload className="w-4 h-4 text-orange-500" />
             <span>Cargar Archivo JSON</span>
             <input
